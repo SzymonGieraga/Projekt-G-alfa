@@ -1,0 +1,83 @@
+<style>
+
+/*margin-top ma wartość 8 żeby pasek nie wchodził całkowiecie na header -> header ma height= 8vh */
+
+.sidenav {
+    margin-top: 8vh; 
+    height: 100vh; 
+    width: 100%;
+    max-width: 9vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #7A0019;
+}
+
+.sidenav a {
+    padding: 15% 15% 15% 17%;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav img {
+    width: 100%;
+    height: auto; 
+    max-height: 50vh;
+    max-width: 40vw;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    background: #660016;
+    position: relative;
+    background-color: #660016;
+}
+
+
+@media screen and (max-height: 900px) {
+    .sidenav img {
+        max-height: 40vh; 
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .sidenav img {
+        max-height: 30vh; 
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .sidenav img {
+        max-height: 20vh; 
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    .sidenav img {
+        max-height: 15vh; 
+    }
+}
+
+</style>
+<!--Sidebar jest fixed - nie zmienia się jego położenie-->
+<!--Jest responsywny - ikonki się zmniejszają ale allignują do góry (do)-->
+<!--Pasek zjeżdża do samego końca strony-->
+<!--Kod sidebaru, do wklejenia w dowolnym miejscu pod <head>, style paska do wklejenia w dowolym miejscu w pliku .css-->
+<!--terms.html do zastąpienia linkami do innych stron-->
+	<div id="mySidenav" class="sidenav">
+  <a href='terms.html'><img src="Terminarz.png" alt="Terminarz"></a>
+  <a href='terms.html'><img src="Plan zajec.png" alt="Plan zajęć"></a>
+  <a href='terms.html'><img src="Tablica.png" alt="Tablica"></a>
+  <a href='terms.html'><img src="Wydarzenia.png" alt="Wydarzenia"></a>
+  <a href='terms.html'><img src="Ustawienia.png" alt="Ustawienia"></a>
+  </div>
+
