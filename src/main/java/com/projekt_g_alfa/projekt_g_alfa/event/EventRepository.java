@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Repository
 public class EventRepository {
@@ -12,6 +14,12 @@ public class EventRepository {
 
     public List<Event> findAll(){
         return events;
+    }
+
+    public Optional<Event> findById(Integer id){
+        return events.stream()
+                .filter(event -> Objects.equals(event.id(), id))
+                .findFirst();
     }
 
     @PostConstruct
