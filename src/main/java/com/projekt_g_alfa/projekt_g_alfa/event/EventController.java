@@ -38,6 +38,15 @@ public class EventController {
         this.eventRepository.create(event);
     }
 
+    //Put
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{id}")
+    void update(@Valid @RequestBody Event event, @PathVariable Integer id){
+        this.eventRepository.update(id, event);
+    }
+
+    //Delete
+
 
 
 }

@@ -13,17 +13,22 @@ public class EventRepository {
     private final List<Event> events = new ArrayList<>();
 
     public List<Event> findAll(){
-        return events;
+        return this.events;
     }
 
     public Optional<Event> findById(Integer id){
-        return events.stream()
+        return this.events.stream()
                 .filter(event -> Objects.equals(event.id(), id))
                 .findFirst();
     }
 
     public void create(Event event){
         this.events.add(event);
+    }
+
+    public void update(Integer id, Event event){
+        Optional<Event> optionalEvent = this.findById(id);
+        optionalEvent.ifPresent(value -> events.set(events.indexOf(value), event));
     }
 
     @PostConstruct
