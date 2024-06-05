@@ -31,6 +31,10 @@ public class EventRepository {
         optionalEvent.ifPresent(value -> events.set(events.indexOf(value), event));
     }
 
+    public void delete(Integer id){
+        this.events.removeIf(event -> Objects.equals(event.id(), id));
+    }
+
     @PostConstruct
     private void init(){
         this.events.add(new Event(

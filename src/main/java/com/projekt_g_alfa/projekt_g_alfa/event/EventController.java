@@ -46,6 +46,11 @@ public class EventController {
     }
 
     //Delete
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    void delete(@PathVariable Integer id){
+        this.eventRepository.delete(id);
+    }
 
 
 
