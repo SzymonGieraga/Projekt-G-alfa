@@ -1,9 +1,8 @@
 package com.projekt_g_alfa.projekt_g_alfa.event;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,4 +30,14 @@ public class EventController {
 
         return event.get();
     }
+
+    //Post
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping()
+    void create(@Valid @RequestBody Event event){
+        this.eventRepository.create(event);
+    }
+
+
+
 }

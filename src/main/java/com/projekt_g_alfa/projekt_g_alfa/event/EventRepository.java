@@ -22,6 +22,10 @@ public class EventRepository {
                 .findFirst();
     }
 
+    public void create(Event event){
+        this.events.add(event);
+    }
+
     @PostConstruct
     private void init(){
         this.events.add(new Event(
