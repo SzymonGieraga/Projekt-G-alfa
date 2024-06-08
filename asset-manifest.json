@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/projektg-alfa/static/css/main.c28f88db.css",
-    "main.js": "/projektg-alfa/static/js/main.678f63ea.js",
-    "index.html": "/projektg-alfa/index.html",
-    "main.c28f88db.css.map": "/projektg-alfa/static/css/main.c28f88db.css.map",
-    "main.678f63ea.js.map": "/projektg-alfa/static/js/main.678f63ea.js.map"
+    "main.css": "/g-alfa/static/css/main.c28f88db.css",
+    "main.js": "/g-alfa/static/js/main.678f63ea.js",
+    "index.html": "/g-alfa/index.html",
+    "main.c28f88db.css.map": "/g-alfa/static/css/main.c28f88db.css.map",
+    "main.678f63ea.js.map": "/g-alfa/static/js/main.678f63ea.js.map"
   },
   "entrypoints": [
     "static/css/main.c28f88db.css",
