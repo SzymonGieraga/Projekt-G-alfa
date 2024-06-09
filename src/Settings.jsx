@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Settings() {
   const [activeCategory, setActiveCategory] = useState(null);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light-mode');
-  const [fontSize, setFontSize] = useState(localStorage.getItem('fontSize') || 'font-medium');
+  const [theme, setTheme] = useState('light-mode');
+  const [fontSize, setFontSize] = useState('font-medium');
 
   const categories = [
     { name: 'Motyw', options: ['Jasny', 'Ciemny'] },
@@ -15,33 +15,22 @@ function Settings() {
     { name: 'Polityka Prywatności', link: './privacy.html' },
   ];
 
-  useEffect(() => {
-    // Ustawianie zapisanego motywu i rozmiaru czcionki z localStorage przy pierwszym renderowaniu
-    document.body.className = `${theme} ${fontSize}`;
-  }, [theme, fontSize]);
-
   const toggleCategory = (categoryName) => {
     setActiveCategory(activeCategory === categoryName ? null : categoryName);
   };
 
   const handleDirectLink = (link) => {
-    // window.location.href = link;
+    window.location.href = link;
   };
 
   const handleThemeChange = (themeName) => {
     setTheme(themeName);
-    // document.body.className = `${themeName} ${fontSize}`;
-    
-    // Zapisywanie preferowanego motywu w localStorage
-    // localStorage.setItem('theme', themeName);
+    document.body.className = `${themeName} ${fontSize}`;
   };
 
   const handleFontSizeChange = (fontSizeName) => {
     setFontSize(fontSizeName);
-    // document.body.className = `${theme} ${fontSizeName}`;
-
-    // Zapisywanie preferowanego rozmiaru czcionki w localStorage
-    // localStorage.setItem('fontSize', fontSizeName);
+    document.body.className = `${theme} ${fontSizeName}`;
   };
 
   return (
@@ -52,7 +41,7 @@ function Settings() {
             className={`category-header ${activeCategory === category.name ? 'active' : ''}`}
             onClick={() => {
               if (category.link) {
-                //handleDirectLink(category.link);
+                handleDirectLink(category.link);
               } else {
                 toggleCategory(category.name);
               }
