@@ -1,4 +1,20 @@
+import styles from './Home.module.css'
+import { useState } from 'react/cjs/react.production.min';
+import PostList from './PostList.jsx';
+
 const Home = () => {
+  // const [posts, setPosts] = useState([
+  //   {title:"Post 1", text:"Lorem ipsum dolor sit amen"},
+  //   {title:"Post 2", text:"Lorem ipsum dolor sit amen"},
+  //   {title:"Post 3", text:"Lorem ipsum dolor sit amen"}
+  // ]);
+  const posts = [
+    {title:"Post 1", text:"Lorem ipsum dolor sit amen"},
+    {title:"Post 2", text:"Lorem ipsum dolor sit amen"},
+    {title:"Post 3", text:"Lorem ipsum dolor sit amen"}
+
+  ];
+
   return ( 
     <>
   {/* <!-- Kontener nagłówka --> */}
@@ -7,6 +23,7 @@ const Home = () => {
       <h1>Ogloszenia</h1>
     </div>
   </div>
+  <PostList posts={posts}/>
 
   {/* <!-- Kontener zawartości --> */}
   <div className="content-container">

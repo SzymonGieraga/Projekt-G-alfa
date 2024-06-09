@@ -81,6 +81,9 @@ body {
 
 .post .actions {
     text-align: right;
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .post .actions a {
@@ -89,6 +92,32 @@ body {
     margin-left: 10px;
 }
 
+.actions .action-container {
+    display: flex;
+    align-items: center;
+}
+
+.post .wezme-udzial-checkbox {
+    margin-left: 60px;
+}
+.post .wezme-udzial-label {
+    margin-right: 5px;
+}
+
+.more-actions-button {
+    border: none;
+    margin-left: 60px;
+    background-color: transparent;
+    cursor: default;
+}
+
+.more-actions {
+    margin-left: 10px;   
+}
+
+.select-action {
+    margin-right: 2px;
+}
 .comments {
     margin-top: 1px;
     max-height: 50px; /* Ograniczenie wysokości sekcji komentarzy */
