@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState(null);
-  const [theme, setTheme] = useState('light-mode');
-  const [fontSize, setFontSize] = useState('font-medium');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light-mode');
+  const [fontSize, setFontSize] = useState(localStorage.getItem('fontSize') || 'font-medium');
 
   const categories = [
     { name: 'Motyw', options: ['Jasny', 'Ciemny'] },
@@ -15,6 +15,11 @@ function App() {
     { name: 'Regulamin', link: './terms.html' },
     { name: 'Polityka Prywatności', link: './privacy.html' },
   ];
+
+  useEffect(() => {
+    // Ustawianie zapisanego motywu i rozmiaru czcionki z localStorage przy pierwszym renderowaniu
+    document.body.className = `${theme} ${fontSize}`;
+  }, [theme, fontSize]);
 
   const toggleCategory = (categoryName) => {
     setActiveCategory(activeCategory === categoryName ? null : categoryName);
@@ -27,11 +32,17 @@ function App() {
   const handleThemeChange = (themeName) => {
     setTheme(themeName);
     document.body.className = `${themeName} ${fontSize}`;
+    
+    // Zapisywanie preferowanego motywu w localStorage
+    localStorage.setItem('theme', themeName);
   };
 
   const handleFontSizeChange = (fontSizeName) => {
     setFontSize(fontSizeName);
     document.body.className = `${theme} ${fontSizeName}`;
+
+    // Zapisywanie preferowanego rozmiaru czcionki w localStorage
+    localStorage.setItem('fontSize', fontSizeName);
   };
 
   return (
