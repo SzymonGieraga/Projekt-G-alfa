@@ -3,3 +3,7 @@
 *.bin
 .idea/
 .node_modules/
+node_modules/
+HELP.md
+package-lock.json
+target/
