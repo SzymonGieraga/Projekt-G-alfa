@@ -1,0 +1,242 @@
+/* Ogólny styl dla całego dokumentu */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Kontener dla całej zawartości strony */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Styl nagłówka */
+.header {
+    background-color: #7A0019;
+    color: #fff;
+    font-size: larger;
+    padding-top: 10px;
+    text-align: center;
+    height: 8vh;
+}
+
+/* Kontener dla nagłówka, który jest przyklejony do góry strony */
+.header-container {
+    position: sticky;
+    top: 0;
+    background-color: #f8f8f8;
+    z-index: 1;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Styl zawartości strony */
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    max-height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
+}
+
+/* Kontener dla zawartości, który zapewnia odpowiednie odstępy */
+.content-container {
+    margin-left: 9vh;
+    max-width: calc(100% - 18vh); /* Szerokość kontenera zmniejszona o szerokość panelu bocznego */
+    height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
+}
+
+/* Styl pojedynczego postu */
+.post {
+    border: 1px solid #AFAEAE;
+    padding: 15px;
+    margin-bottom: 10px; /* Zmniejszono margines między postami */
+    border-radius: 5px;
+    height: 20%; /* Zmniejszono wysokość postu */
+    position: relative;
+    width: 40%; /* Zmniejszono szerokość postu */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #AFAEAE; /* Kolor tła postu */
+}
+
+.post h2 {
+    margin-top: 0;
+    font-size: 1.2em; /* Zmieniono rozmiar tytułu postu */
+}
+
+.post p {
+    line-height: 1.4;
+    font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
+}
+
+.post .meta {
+    margin-top: 5px; /* Mniejszy odstęp od treści postu */
+}
+
+.post .actions {
+    text-align: right;
+}
+
+.post .actions a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 10px;
+}
+
+.comments {
+    margin-top: 1px;
+    max-height: 50px; /* Ograniczenie wysokości sekcji komentarzy */
+    overflow-y: auto; /* Dodanie przewijania */
+    border: 1px solid rgb(92, 86, 86);
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 1px;
+    margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
+}
+
+.comment-button {
+    margin-right: 10px;
+    color: #000
+}
+
+.clear {
+    clear: both;
+}
+
+/* Styl dla przycisku dodawania postów */
+.add-post-button {
+    position: fixed;
+    bottom: 8vh;
+    right: 8vh;
+    background-color: #ffffff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.add-post-button:hover {
+    background-color: #ffffff;
+}
+
+/* Styl dla formularza dodawania postów */
+.add-post-form {
+    display: none;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    z-index: 2;
+}
+
+.add-post-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-post-form input[type="text"],
+.add-post-form textarea,
+.add-post-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.add-post-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.add-post-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styl dla bocznego paska nawigacyjnego */
+.sidenav {
+    margin-top: 8vh;
+    height: 100vh;
+    width: 100%;
+    max-width: 9vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #7A0019;
+}
+
+.sidenav a {
+    padding: 15% 15% 15% 17%;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    max-width: 40vw;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    background: #660016;
+    position: relative;
+    background-color: #660016;
+}
+
+@media screen and (max-height: 900px) {
+    .sidenav img {
+    max-height: 40vh;
+    
+
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .sidenav img {
+    max-height: 30vh;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .sidenav img {
+    max-height: 20vh;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+    padding-top: 15px;
+    }
+    .sidenav a {
+    font-size: 18px;
+    }
+    .sidenav img {
+    max-height: 15vh;
+    }
+}
