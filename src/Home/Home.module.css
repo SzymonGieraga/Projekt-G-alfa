@@ -24,7 +24,7 @@ body {
 }
 
 /* Kontener dla nagłówka, który jest przyklejony do góry strony */
-.header-container {
+.headerContainer {
     position: sticky;
     top: 0;
     background-color: #f8f8f8;
@@ -45,7 +45,7 @@ body {
 }
 
 /* Kontener dla zawartości, który zapewnia odpowiednie odstępy */
-.content-container {
+.contentContainer {
     margin-left: 9vh;
     max-width: calc(100% - 18vh); /* Szerokość kontenera zmniejszona o szerokość panelu bocznego */
     height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
@@ -53,19 +53,19 @@ body {
 
 /* Styl pojedynczego postu */
 .post {
-    border: 1px solid #AFAEAE;
+    border: 1px solid #464545;
+    text-align: left;
     padding: 15px;
     margin-bottom: 10px; /* Zmniejszono margines między postami */
     border-radius: 5px;
     height: 20%; /* Zmniejszono wysokość postu */
     position: relative;
-    width: 40%; /* Zmniejszono szerokość postu */
+    max-width: 50em; /* Zmniejszono szerokość postu */
     margin-left: auto;
     margin-right: auto;
     background-color: #AFAEAE; /* Kolor tła postu */
 }
-
-.post h2 {
+.postTitle {
     margin-top: 0;
     font-size: 1.2em; /* Zmieniono rozmiar tytułu postu */
 }
@@ -75,7 +75,7 @@ body {
     font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
 }
 
-.post .meta {
+.post .body {
     margin-top: 5px; /* Mniejszy odstęp od treści postu */
 }
 
@@ -92,30 +92,30 @@ body {
     margin-left: 10px;
 }
 
-.actions .action-container {
+.actions .actionContainer {
     display: flex;
     align-items: center;
 }
 
-.post .wezme-udzial-checkbox {
+.post .wezmeUdzialCheckbox {
     margin-left: 60px;
 }
-.post .wezme-udzial-label {
+.post .wezmeUdzialLabel {
     margin-right: 5px;
 }
 
-.more-actions-button {
+.moreActionsButton {
     border: none;
     margin-left: 60px;
     background-color: transparent;
     cursor: default;
 }
 
-.more-actions {
+.moreActions {
     margin-left: 10px;   
 }
 
-.select-action {
+.selectAction {
     margin-right: 2px;
 }
 .comments {
@@ -131,7 +131,7 @@ body {
     margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
 }
 
-.comment-button {
+.commentButton {
     margin-right: 10px;
     color: #000
 }
@@ -141,7 +141,7 @@ body {
 }
 
 /* Styl dla przycisku dodawania postów */
-.add-post-button {
+.addPostButton {
     position: fixed;
     bottom: 8vh;
     right: 8vh;
@@ -154,12 +154,12 @@ body {
     font-size: 24px;
 }
 
-.add-post-button:hover {
+.addPostButton:hover {
     background-color: #ffffff;
 }
 
 /* Styl dla formularza dodawania postów */
-.add-post-form {
+.addPostForm {
     display: none;
     background-color: #ffffff;
     padding: 20px;
@@ -174,14 +174,14 @@ body {
     z-index: 2;
 }
 
-.add-post-form label {
+.addPostForm label {
     display: block;
     margin-bottom: 5px;
 }
 
-.add-post-form input[type="text"],
-.add-post-form textarea,
-.add-post-form select {
+.addPostForm input[type="text"],
+.addPostForm textarea,
+.addPostForm select {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -190,7 +190,7 @@ body {
     margin-bottom: 10px;
 }
 
-.add-post-form button[type="submit"] {
+.addPostForm button[type="submit"] {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -199,73 +199,6 @@ body {
     cursor: pointer;
 }
 
-.add-post-form button[type="submit"]:hover {
+.addPostForm button[type="submit"]:hover {
     background-color: #0056b3;
-}
-
-/* Styl dla bocznego paska nawigacyjnego */
-.sidenav {
-    margin-top: 8vh;
-    height: 100vh;
-    width: 100%;
-    max-width: 9vw;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #7A0019;
-}
-
-.sidenav a {
-    padding: 15% 15% 15% 17%;
-    text-decoration: none;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav img {
-    width: 100%;
-    height: auto;
-    max-height: 50vh;
-    max-width: 40vw;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-    background: #660016;
-    position: relative;
-    background-color: #660016;
-}
-
-@media screen and (max-height: 900px) {
-    .sidenav img {
-    max-height: 40vh;
-    
-
-    }
-}
-
-@media screen and (max-height: 700px) {
-    .sidenav img {
-    max-height: 30vh;
-    }
-}
-
-@media screen and (max-height: 500px) {
-    .sidenav img {
-    max-height: 20vh;
-    }
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {
-    padding-top: 15px;
-    }
-    .sidenav a {
-    font-size: 18px;
-    }
-    .sidenav img {
-    max-height: 15vh;
-    }
 }

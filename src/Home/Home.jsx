@@ -9,26 +9,26 @@ const Home = () => {
   //   {title:"Post 3", text:"Lorem ipsum dolor sit amen"}
   // ]);
   const posts = [
-    {title:"Post 1", text:"Lorem ipsum dolor sit amen"},
-    {title:"Post 2", text:"Lorem ipsum dolor sit amen"},
-    {title:"Post 3", text:"Lorem ipsum dolor sit amen"}
+    {title:"Post 1", text:"Lorem ipsum dolor sit amen", id:1},
+    {title:"Post 2", text:"Lorem ipsum dolor sit amen", id:2},
+    {title:"Post 3", text:"Lorem ipsum dolor sit amen", id:3}
 
   ];
 
   return ( 
-    <>
+    <div styles={styles}>
   {/* <!-- Kontener nagłówka --> */}
   <div className="header-container">
     <div className="header">
       <h1>Ogloszenia</h1>
     </div>
   </div>
-  <PostList posts={posts}/>
 
   {/* <!-- Kontener zawartości --> */}
   <div className="content-container">
     <div className="content">
       {/* <!-- Dodatkowe posty będą tutaj dodawane --> */}
+      <PostList posts={posts}/>
     </div>
   </div>
 
@@ -38,7 +38,7 @@ const Home = () => {
   </button>
   {/* <!-- Formularz do dodawania nowego postu --> */}
 
-  </>
+  </div>
    );
 }
  
