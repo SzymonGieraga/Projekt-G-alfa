@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css';
 
-function App() {
+function Settings() {
   const [activeCategory, setActiveCategory] = useState(null);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light-mode');
   const [fontSize, setFontSize] = useState(localStorage.getItem('fontSize') || 'font-medium');
@@ -26,23 +25,23 @@ function App() {
   };
 
   const handleDirectLink = (link) => {
-    window.location.href = link;
+    // window.location.href = link;
   };
 
   const handleThemeChange = (themeName) => {
     setTheme(themeName);
-    document.body.className = `${themeName} ${fontSize}`;
+    // document.body.className = `${themeName} ${fontSize}`;
     
     // Zapisywanie preferowanego motywu w localStorage
-    localStorage.setItem('theme', themeName);
+    // localStorage.setItem('theme', themeName);
   };
 
   const handleFontSizeChange = (fontSizeName) => {
     setFontSize(fontSizeName);
-    document.body.className = `${theme} ${fontSizeName}`;
+    // document.body.className = `${theme} ${fontSizeName}`;
 
     // Zapisywanie preferowanego rozmiaru czcionki w localStorage
-    localStorage.setItem('fontSize', fontSizeName);
+    // localStorage.setItem('fontSize', fontSizeName);
   };
 
   return (
@@ -53,7 +52,7 @@ function App() {
             className={`category-header ${activeCategory === category.name ? 'active' : ''}`}
             onClick={() => {
               if (category.link) {
-                handleDirectLink(category.link);
+                //handleDirectLink(category.link);
               } else {
                 toggleCategory(category.name);
               }
@@ -85,4 +84,4 @@ function App() {
   );
 }
 
-export default App;
+export default Settings;
