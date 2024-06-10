@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 import SideBar from "./SideBar";
-import Settings from "./Settings";
+import Settings from "./Settings/Settings";
 import Home from "./Home/Home";
 import Header from "./Header";
 import Footer from "./Footer";
