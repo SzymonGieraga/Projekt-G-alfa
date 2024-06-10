@@ -1,0 +1,222 @@
+/* Ogólny styl dla całego dokumentu */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Kontener dla całej zawartości strony */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* Styl zawartości strony */
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    max-height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
+}
+
+/* Kontener dla zawartości, który zapewnia odpowiednie odstępy */
+.contentContainer {
+    margin-left: 9vh;
+    max-width: calc(100% - 18vh); /* Szerokość kontenera zmniejszona o szerokość panelu bocznego */
+    height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
+}
+
+/* Styl pojedynczego postu */
+.post {
+    border: 1px solid #464545;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 10px; /* Zmniejszono margines między postami */
+    border-radius: 0.5em;
+    height: 20%; /* Zmniejszono wysokość postu */
+    position: relative;
+    width: 40em; /* Zmniejszono szerokość postu */
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #AFAEAE; /* Kolor tła postu */
+}
+.postTitle {
+    margin-top: 0;
+    font-size: 1.2em; /* Zmieniono rozmiar tytułu postu */
+}
+
+.post p {
+    line-height: 1.4;
+    font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
+}
+
+.post .body {
+    margin-top: 5px; /* Mniejszy odstęp od treści postu */
+}
+
+.post .actions {
+    text-align: right;
+    display: flex; 
+
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top: 10px;
+}
+
+
+.actions .actionContainer {
+    display: flex;
+    width: 100%;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+
+.moreActions {
+    margin-left: 10px;   
+    /* display: flex; */
+    flex-direction:row;
+    justify-content:space-between;
+    display: block;
+}
+
+.selectAction {
+    margin-right: 2px;
+    display: block;
+}
+.commentList {
+    margin-top: 10px;
+    max-height: 30em; /* Ograniczenie wysokości sekcji komentarzy */
+    overflow-y: auto; /* Dodanie przewijania */
+    border-top: 2px solid rgb(92, 86, 86);
+    display: block;
+}
+
+.comment {
+    padding: 1px;
+    margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
+    border-bottom: 1px solid rgb(92, 86, 86);
+
+}
+
+.comment:last-of-type {
+    border-bottom: none;
+}
+.comment:last-of-type .commentText{
+    margin-bottom: 0;
+}
+
+.textSizeControll{
+    text-decoration: none;
+}
+
+.textSizeControll:visited{
+    color: #7A0019 !important;
+}
+
+.addCommentForm{
+    margin-top: 10px;
+}
+
+.commentButton {
+    margin: 0;
+    color: #7A0019 !important;
+    display: block;
+    /* display: flex; */
+}
+.commentButton:visited{
+    color: #7A0019 !important;
+}
+
+.addCommentButton{
+    font-size: small;
+    display: block;
+    margin: 0;
+    margin-top: 0.5em;
+}
+.addCommentTextarea{
+    width: 95%;
+    background-color: #c7c6c6;
+    border: solid #000 1px;
+    border-radius: 0.5em;
+    overflow-y:auto !important;
+    resize: none;
+    max-height: 30em;
+
+}
+.addCommentTextarea:focus{
+    border: solid #7A0019 2px;
+    outline: none !important;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Styl dla przycisku dodawania postów */
+.addPostButton {
+    position: fixed;
+    bottom: 8vh;
+    right: 8vh;
+    background-color: #ffffff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.addPostButton:hover {
+    background-color: #ffffff;
+}
+
+/* Styl dla formularza dodawania postów */
+.addPostForm {
+    display: none;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    z-index: 2;
+}
+
+.addPostForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.addPostForm input[type="text"],
+.addPostForm textarea,
+.addPostForm select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.addPostForm button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.addPostForm button[type="submit"]:hover {
+    background-color: #0056b3;
+}
