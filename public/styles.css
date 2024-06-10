@@ -225,6 +225,16 @@ body.font-large {
     width: auto;
 }
 
+a {
+    color: #7A0019;
+    text-decoration: none;
+}
+
+a:visited{
+    color: #b40124;
+
+}
+
 /* Adjust icon sizes for different window heights */
 @media screen and (max-height: 900px) {
     .sidenav img {

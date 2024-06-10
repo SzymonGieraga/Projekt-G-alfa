@@ -13,27 +13,6 @@ body {
     padding: 0;
 }
 
-/* Styl nagłówka */
-.header {
-    background-color: #7A0019;
-    color: #fff;
-    font-size: larger;
-    padding-top: 10px;
-    text-align: center;
-    height: 8vh;
-}
-
-/* Kontener dla nagłówka, który jest przyklejony do góry strony */
-.headerContainer {
-    position: sticky;
-    top: 0;
-    background-color: #f8f8f8;
-    z-index: 1;
-}
-
-.header h1 {
-    margin: 0;
-}
 
 /* Styl zawartości strony */
 .content {
@@ -57,10 +36,11 @@ body {
     text-align: left;
     padding: 15px;
     margin-bottom: 10px; /* Zmniejszono margines między postami */
-    border-radius: 5px;
+    border-radius: 0.5em;
     height: 20%; /* Zmniejszono wysokość postu */
     position: relative;
-    max-width: 50em; /* Zmniejszono szerokość postu */
+    width: 40em; /* Zmniejszono szerokość postu */
+    max-width: 60vw;
     margin-left: auto;
     margin-right: auto;
     background-color: #AFAEAE; /* Kolor tła postu */
@@ -82,58 +62,89 @@ body {
 .post .actions {
     text-align: right;
     display: flex; 
-    justify-content: space-between;
+
+    flex-direction:row;
+    justify-content:space-between;
     margin-top: 10px;
 }
 
-.post .actions a {
-    text-decoration: none;
-    color: #333;
-    margin-left: 10px;
-}
 
 .actions .actionContainer {
     display: flex;
-    align-items: center;
+    width: 100%;
+    flex-direction:row;
+    justify-content:space-between;
 }
 
-.post .wezmeUdzialCheckbox {
-    margin-left: 60px;
-}
-.post .wezmeUdzialLabel {
-    margin-right: 5px;
-}
-
-.moreActionsButton {
-    border: none;
-    margin-left: 60px;
-    background-color: transparent;
-    cursor: default;
-}
 
 .moreActions {
     margin-left: 10px;   
+    /* display: flex; */
+    flex-direction:row;
+    justify-content:space-between;
+    display: block;
 }
 
 .selectAction {
     margin-right: 2px;
+    display: block;
 }
-.comments {
-    margin-top: 1px;
-    max-height: 50px; /* Ograniczenie wysokości sekcji komentarzy */
+.commentList {
+    margin-top: 10px;
+    max-height: 30em; /* Ograniczenie wysokości sekcji komentarzy */
     overflow-y: auto; /* Dodanie przewijania */
-    border: 1px solid rgb(92, 86, 86);
+    border-top: 2px solid rgb(92, 86, 86);
+    display: block;
 }
 
 .comment {
-    background-color: #f9f9f9;
     padding: 1px;
     margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
+    border-bottom: 1px solid rgb(92, 86, 86);
+
+}
+
+.textSizeControll{
+    text-decoration: none;
+}
+
+.textSizeControll:visited{
+    color: #7A0019 !important;
+}
+
+.addCommentForm{
+    margin-top: 10px;
 }
 
 .commentButton {
-    margin-right: 10px;
-    color: #000
+    margin: 0;
+    color: #7A0019 !important;
+    display: block;
+    /* display: flex; */
+}
+.commentButton:visited{
+    color: #7A0019 !important;
+}
+
+.addCommentButton{
+    font-size: small;
+    display: block;
+    margin: 0;
+    margin-top: 0.5em;
+}
+.addCommentTextarea{
+    width: 95%;
+    background-color: #c7c6c6;
+    border: solid #000 1px;
+    border-radius: 0.5em;
+    overflow-y:auto !important;
+    resize: none;
+    max-height: 30em;
+
+}
+.addCommentTextarea:focus{
+    border: solid #7A0019 2px;
+    outline: none !important;
 }
 
 .clear {
