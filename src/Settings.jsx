@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 
-function Settings() {
+function Settings({setTitle}) {
+  setTitle("Ustawienia");
+
   const [activeCategory, setActiveCategory] = useState(null);
   const [theme, setTheme] = useState('light-mode');
   const [fontSize, setFontSize] = useState('font-medium');
@@ -34,7 +36,7 @@ function Settings() {
   };
 
   return (
-    <div className={`App ${theme} ${fontSize}`}>
+    <div >
       {categories.map((category) => (
         <div key={category.name}>
           <div
