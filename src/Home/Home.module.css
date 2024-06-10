@@ -104,6 +104,13 @@ body {
 
 }
 
+.comment:last-of-type {
+    border-bottom: none;
+}
+.comment:last-of-type .commentText{
+    margin-bottom: 0;
+}
+
 .textSizeControll{
     text-decoration: none;
 }

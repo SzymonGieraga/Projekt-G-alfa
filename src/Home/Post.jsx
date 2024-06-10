@@ -1,15 +1,33 @@
 import styles from './Home.module.css'
 import CommentList from './CommentList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Post = ({post}) => {
-  const [showComments, setShowComments] = useState(false);
+    const [showComments, setShowComments] = useState(false);
+    const DEFAULT_TEXT_SIZE = 500;
+
+    const textSizeOverDefault = (post.text.length>DEFAULT_TEXT_SIZE);
+    const [showAll, setShowAll] = useState(!textSizeOverDefault);
+    const [contentToDisplay, setContentToDisplay] = useState('');
+    useEffect(()=>{
+        setContentToDisplay(showAll ? post.text : post.text.substring(0,DEFAULT_TEXT_SIZE));
+
+    },[showAll])
 
     return ( 
         <div className={styles.post}>
             <h2 className={styles.postTitle}>{post.title}</h2>
             <div className={styles.postBody}>
-            <p>{post.text}</p>
+            <p>
+                {contentToDisplay}
+                {!showAll && (
+                    <a className={styles.textSizeControll} href='#' onClick={() => setShowAll(true)}>...</a>
+                )}
+                {showAll && textSizeOverDefault && (
+                    <a className={styles.textSizeControll} href='#' onClick={() => setShowAll(false)}> Ukryj </a>
+                )}
+            
+            </p>
             {/* <p>Widoczność: %group%</p> */}
             </div>
             <div className={styles.actions}>

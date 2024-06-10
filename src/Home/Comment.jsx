@@ -2,12 +2,12 @@ import styles from './Home.module.css'
 import { useState, useEffect } from 'react';
 
 const Comment = ({comment}) => {
-    const defaultTextSize = 100;
-    const textSizeOverDefault = (comment.text.length>defaultTextSize);
+    const DEFAULT_TEXT_SIZE = 100;
+    const textSizeOverDefault = (comment.text.length>DEFAULT_TEXT_SIZE);
     const [showAll, setShowAll] = useState(!textSizeOverDefault);
     const [contentToDisplay, setContentToDisplay] = useState('');
     useEffect(()=>{
-        setContentToDisplay(showAll ? comment.text : comment.text.substring(0,defaultTextSize));
+        setContentToDisplay(showAll ? comment.text : comment.text.substring(0,DEFAULT_TEXT_SIZE));
 
     },[showAll])
 
