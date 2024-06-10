@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
-import SideBar from "./SideBar";
+import SideBar from "./Layout/SideBar";
 import Settings from "./Settings/Settings";
 import Home from "./Home/Home";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Layout/Header";
+import Footer from "./Layout/Footer";
+import PageNotFound from "./PageNotFound";
 
 const App = () => {
     const [title, setTitle] = useState('');
@@ -16,8 +17,10 @@ const App = () => {
             <div className="App">
                 <Switch>
                     <Route exact path='/'><Home setTitle={setTitle} /></Route>
+                    <Route exact path='/home'><Home setTitle={setTitle} /></Route>
+                    <Route exact path='/index.html'><Home setTitle={setTitle} /></Route>
                     <Route path='/ustawienia'><Settings setTitle={setTitle} /></Route>
-                    <Route path='/*'><p>Nie znaleziono strony :(</p></Route>
+                    <Route path='/*'><PageNotFound setTitle={setTitle}/></Route>
                 
 
                 </Switch>

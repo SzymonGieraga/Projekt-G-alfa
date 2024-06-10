@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import planZajecImage from './images/Plan zajec.png'
-import tablicaImage from './images/Tablica.png'
-import termiarzImage from './images/Terminarz.png'
-import ustawieniaImage from './images/Ustawienia.png'
-import wydarzeniaImage from './images/Wydarzenia.png'
-import potitechnikaHerbImage from './images/politechnikałódzkaherb.jpg'
+import planZajecImage from '../images/Plan zajec.png'
+import tablicaImage from '../images/Tablica.png'
+import termiarzImage from '../images/Terminarz.png'
+import ustawieniaImage from '../images/Ustawienia.png'
+import wydarzeniaImage from '../images/Wydarzenia.png'
+import potitechnikaHerbImage from '../images/politechnikałódzkaherb.jpg'
 
 const SideBar = () => {
     return ( 
