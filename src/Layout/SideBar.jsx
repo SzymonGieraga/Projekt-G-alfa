@@ -10,7 +10,7 @@ const SideBar = () => {
     return ( 
         <div id="mySidenav" className="sidenav">
             <img id='image-herb' src={potitechnikaHerbImage} alt="Herb Politechniki Łódzkiej"/>
-            <Link to='/terminarz'><img src={termiarzImage} alt="Termiarz"/></Link>
+            <Link to='/Schedule'><img src={termiarzImage} alt="Termiarz"/></Link>
             <Link to='/plan-zajec'><img src={planZajecImage} alt="Plan Zajęć"/></Link>
             <Link to='/'><img src={tablicaImage} alt="Tablica Ogłoszeń"/></Link>
             <Link to='/wydarzenia'><img src={wydarzeniaImage} alt="Wydarzenia"/></Link>
