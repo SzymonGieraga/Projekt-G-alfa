@@ -235,6 +235,22 @@ a:visited{
 
 }
 
+input[type="text"],
+textarea{
+    border: solid #000 1px;
+    border-radius: 0.5em;
+    overflow-y:auto !important;
+    resize: none;
+    max-height: 30em;
+}
+
+input[type="text"]:focus,
+textarea:focus{
+    border: solid #7A0019 2px !important;
+    outline: none !important;
+}
+
+
 /* Adjust icon sizes for different window heights */
 @media screen and (max-height: 900px) {
     .sidenav img {

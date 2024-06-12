@@ -45,18 +45,49 @@ body {
     margin-right: auto;
     background-color: #AFAEAE; /* Kolor tła postu */
 }
+.postHead{
+    display: flex;
+    justify-content: space-between;
+}
+.postHead p{
+    margin:0;
+    padding: 0;
+}
+.postMetaData{
+    margin-top:1em;
+
+}
 .postTitle {
     margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
     font-size: 1.2em; /* Zmieniono rozmiar tytułu postu */
 }
+.postAuthorName{
+    margin-top: 1.5em;
+    margin-bottom: 0.1em;
+}
 
-.post p {
+.postDate{
+    font-size: 14px;
+}
+
+.postBody {
+    margin-top: 1em; /* Mniejszy odstęp od treści postu */
+    margin-bottom: 0;
+    padding: 0;
     line-height: 1.4;
     font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
 }
 
-.post .body {
-    margin-top: 5px; /* Mniejszy odstęp od treści postu */
+.postEventDetails{
+    margin-top: 0.7em;
+    border-top: 1px solid rgb(92, 86, 86);
+    display: block;
+}
+
+.postEventDetails p{
+    margin: 0.2em 0;
 }
 
 .post .actions {
@@ -65,7 +96,7 @@ body {
 
     flex-direction:row;
     justify-content:space-between;
-    margin-top: 10px;
+    margin-top: 1em;
 }
 
 
@@ -74,6 +105,11 @@ body {
     width: 100%;
     flex-direction:row;
     justify-content:space-between;
+}
+
+
+.postTakePart{
+    cursor: pointer;   
 }
 
 
@@ -100,6 +136,7 @@ body {
 .comment {
     padding: 1px;
     margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
+    margin-top: 8px; /* Mniejsza odległość między komentarzami */
     border-bottom: 1px solid rgb(92, 86, 86);
 
 }
@@ -109,6 +146,17 @@ body {
 }
 .comment:last-of-type .commentText{
     margin-bottom: 0;
+}
+.commentHead{
+    display: flex;
+    justify-content:space-between;
+}
+.commentDate{
+    margin: 0;
+    font-size: 14px;
+}
+.commentAuthor{
+    margin: 0;
 }
 
 .textSizeControll{
@@ -142,16 +190,6 @@ body {
 .addCommentTextarea{
     width: 95%;
     background-color: #c7c6c6;
-    border: solid #000 1px;
-    border-radius: 0.5em;
-    overflow-y:auto !important;
-    resize: none;
-    max-height: 30em;
-
-}
-.addCommentTextarea:focus{
-    border: solid #7A0019 2px;
-    outline: none !important;
 }
 
 .clear {
@@ -160,30 +198,22 @@ body {
 
 /* Styl dla przycisku dodawania postów */
 .addPostButton {
-    position: fixed;
+    position: fixed !important;
     bottom: 8vh;
     right: 8vh;
-    background-color: #ffffff;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
+    padding: 0.1em 0.4em;
     cursor: pointer;
-    font-size: 24px;
+    font-size: 40px;
 }
 
-.addPostButton:hover {
-    background-color: #ffffff;
-}
 
 /* Styl dla formularza dodawania postów */
 .addPostForm {
-    display: none;
+    display: block;
     background-color: #ffffff;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -219,4 +249,17 @@ body {
 
 .addPostForm button[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+#postFormIsEvent{
+    display: flex;
+    justify-content:left;
+    margin-top: 1em;
+}
+#postFormIsEventCheckbox{
+    margin-left: 1em;
+}
+
+#postEventDate{
+    width: 100%;
 }

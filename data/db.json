@@ -1,0 +1,507 @@
+{
+  "posts": [
+    {
+      "id": "c1f1c6d5-08d3-4a1f-9a3a-1bc1d26e9a45",
+      "author": "Jan Kowalski",
+      "author_id": "d5f8e9c7-0732-4fa6-b2f0-dc2e5d4f9272",
+      "title": "Sprzedam książki do matematyki",
+      "text": "Mam do sprzedania zestaw książek do matematyki z 1 roku studiów.",
+      "is_event": false,
+      "event": null,
+      "created_at": "2024-06-12T14:30:00.000Z"
+    },
+    {
+      "id": "e7f2a6d3-2d54-4b9a-b6f1-2b5c6d8e7a12",
+      "author": "Katarzyna Wójcik",
+      "author_id": "f7e8d9c6-2a31-48a6-b2c1-3d4e5f6a7b82",
+      "title": "Poszukuję korepetycji z fizyki",
+      "text": "Szukam osoby, która pomoże mi w zrozumieniu mechaniki kwantowej.",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": false,
+      "event": null
+    },
+    {
+      "id": "a2f3e7b4-5d46-4b8a-9c2b-1e2f3c4d5e67",
+      "author": "Paweł Lewandowski",
+      "author_id": "e5d6f7a8-2b34-4c5d-9a6e-3d4e5f6a7b98",
+      "title": "Sprzedam rower górski",
+      "text": "Rower w bardzo dobrym stanie, mało używany.",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": false,
+      "event": null
+    },
+    {
+      "id": "d6f7e2b3-1c48-4a9d-9c1e-3f4e5d6a7b56",
+      "author": "Joanna Wiśniewska",
+      "author_id": "b4e5d6f7-2a34-48a6-9b1e-1c2f3d4a5e67",
+      "title": "Wynajmę pokój w centrum",
+      "text": "Wynajmę jednoosobowy pokój w centrum miasta.",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": false,
+      "event": null
+    },
+    {
+      "id": "c8e7d4b3-5a49-4b8c-9a1e-2f3e4d5a6b67",
+      "author": "Marek Jabłoński",
+      "author_id": "e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67",
+      "title": "Szukam współlokatora",
+      "text": "Poszukuję współlokatora do mieszkania w centrum.",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": false,
+      "event": null
+    },
+    {
+      "id": "6f05",
+      "title": "lol",
+      "text": ",k,",
+      "author": "Jan Kowalski",
+      "author_id": "e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": true,
+      "event": {
+        "date": "2024-06-12",
+        "time_starts": "12:30",
+        "time_ends": "13:15",
+        "location": "hello"
+      }
+    },
+    {
+      "id": "9ff6",
+      "title": "powitanie",
+      "text": "hi",
+      "author": "Jan Kowalski",
+      "author_id": "e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": true,
+      "event": {
+        "date": "2024-06-12T14:15:15.049Z",
+        "time_starts": "16:15",
+        "time_ends": "2024-06-12T14:30:00.000Z",
+        "location": "jkjklljkjkl"
+      }
+    },
+    {
+      "id": "db44",
+      "title": "witaj",
+      "text": "jkldsfkjlasdf",
+      "author": "Jan Kowalski",
+      "author_id": "e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": true,
+      "event": {
+        "date": "2024-06-12T14:16:05.901Z",
+        "time_starts": "15:45",
+        "time_ends": "16:00",
+        "location": "fdsaaasdf"
+      }
+    },
+    {
+      "id": "6ff5",
+      "title": "sfdsadf",
+      "text": "sdfadsfs",
+      "author": "Jan Kowalski",
+      "author_id": "e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67",
+      "created_at": "2024-06-12T14:30:00.000Z",
+      "is_event": true,
+      "event": {
+        "date": "2024-06-12T15:03:01.283Z",
+        "time_starts": "17:03",
+        "time_ends": "17:03",
+        "location": "fdf"
+      }
+    }
+  ],
+  "comments": [
+    {
+      "id": "c1f1c6d5-08d3-4a1f-9a3a-1bc1d26e9a45",
+      "comments": [
+        {
+          "author": "Anna Nowak",
+          "text": "Ile za cały zestaw?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "3e9b6c7e-0b72-4b8b-8e7f-3e2e9e4a8b67"
+        },
+        {
+          "author": "Piotr Wiśniewski",
+          "text": "Czy są w dobrym stanie?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "4d6f7e8c-1a34-45a6-9e7c-2c5e4f8d7b24"
+        },
+        {
+          "author": "Maria Kaczmarek",
+          "text": "Jaka jest cena poszczególnych książek?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "e2d4c5f6-182b-4a7f-b1e8-1f2d3c4b5a67"
+        },
+        {
+          "author": "Kamil Zieliński",
+          "text": "Jest możliwość wysyłki?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "9a6b7c8d-1e2a-4f8b-9c1e-3d4e5f6a7b68"
+        }
+      ]
+    },
+    {
+      "id": "e7f2a6d3-2d54-4b9a-b6f1-2b5c6d8e7a12",
+      "comments": [
+        {
+          "author": "Marek Nowicki",
+          "text": "Mogę pomóc. Jaki poziom potrzebujesz?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "3d5e6f7a-2b34-4c5d-9a6e-2f3e4d5b6c78"
+        },
+        {
+          "author": "Ewa Jabłońska",
+          "text": "Mam doświadczenie w tej dziedzinie. Chętnie pomogę.",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "8b7c6d5e-3f24-4a5b-8c6d-1e2f3d4a5b67"
+        },
+        {
+          "author": "Adam Szymański",
+          "text": "Jestem doktorantem z fizyki, mogę udzielić korepetycji.",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "5d6e7f8a-2c34-4b5d-9a6e-3f4e5d6b7c82"
+        },
+        {
+          "author": "Monika Wiśniewska",
+          "text": "Polecam się, mam doświadczenie w prowadzeniu zajęć.",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "7c8d6e5f-4b35-4c6d-8a7e-2f3d4e5b6a12"
+        }
+      ]
+    },
+    {
+      "id": "a2f3e7b4-5d46-4b8a-9c2b-1e2f3c4d5e67",
+      "comments": [
+        {
+          "author": "Agnieszka Zielińska",
+          "text": "Jaka jest cena?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "4b5d6e7f-3c24-4a6d-9b6e-2f3e4d5a6b78"
+        },
+        {
+          "author": "Łukasz Kamiński",
+          "text": "Czy mogę zobaczyć zdjęcia roweru?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "7d8e6f5c-2b34-4c6d-8a7e-3f4e5d6b7c12"
+        },
+        {
+          "author": "Dorota Kowalczyk",
+          "text": "Gdzie można obejrzeć rower?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "5e7f8d6c-3b25-4a6e-9c7e-1f2e3d4b5a67"
+        },
+        {
+          "author": "Tomasz Kaczmarek",
+          "text": "Czy jest możliwość negocjacji ceny?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "6d7e8f5b-4c36-4a7d-8b7e-2f3e4d5c6a78"
+        }
+      ]
+    },
+    {
+      "id": "d6f7e2b3-1c48-4a9d-9c1e-3f4e5d6a7b56",
+      "comments": [
+        {
+          "author": "Michał Kowalski",
+          "text": "Jaka jest cena wynajmu?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "3e6f5d7a-4b35-4a7d-8c6e-2f3e4d5b7a89"
+        },
+        {
+          "author": "Natalia Szymańska",
+          "text": "Czy w pobliżu są sklepy i przystanki?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "5d7e6f8a-2c34-4b5d-9a6e-3f4e5d6a7b12"
+        },
+        {
+          "author": "Piotr Lewicki",
+          "text": "Czy pokój jest umeblowany?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "8c6d7e5f-3b25-4a6e-9b7e-1f2e3d4b5a67"
+        },
+        {
+          "author": "Karolina Nowak",
+          "text": "Czy są dodatkowe opłaty?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "6e7f8d5c-4b35-4a7d-9c7e-2f3e4d5a6b89"
+        }
+      ]
+    },
+    {
+      "id": "c8e7d4b3-5a49-4b8c-9a1e-2f3e4d5a6b67",
+      "comments": [
+        {
+          "author": "Aleksandra Kowalczyk",
+          "text": "Jaka jest cena za pokój?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "4a5d6e7f-3b24-4a7d-9c6e-2f3e4d5b6a78"
+        },
+        {
+          "author": "Damian Nowak",
+          "text": "Czy w pobliżu są uczelnie?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "7d6e8f5c-2c34-4a6d-8b7e-3f4e5d6a7c12"
+        },
+        {
+          "author": "Barbara Kaczmarek",
+          "text": "Czy mogę obejrzeć mieszkanie?",
+          "created_at": "2024-06-12T14:30:00.000Z",
+          "author_id": "5e6f7d8a-3b25-4a7e-9c7e-1f2e3d4b5a67"
+        }
+      ]
+    }
+  ],
+  "time-table": [
+    {
+      "weekDay": "Poniedziałek",
+      "time": [
+        {
+          "number": 1,
+          "hour": "08:00-09:30",
+          "field": {
+            "subject_id": "a1b2c3d4-e5f6-7g8h-9i10-j11k12l13m14",
+            "subject_name": "Algorytmy i Struktury Danych",
+            "lecturer_id": "n15o16p17-q18r19s20-t21u22v23w24",
+            "lecturer_name": "Dr. Jan Nowak",
+            "location_text": "Sala 101",
+            "location_utm": "UTM 33TWN123456",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 2,
+          "hour": "10:00-11:30",
+          "field": {
+            "subject_id": "b2c3d4e5-f6g7-h8i9-10j11-k12l13m14n15",
+            "subject_name": "Programowanie Obiektowe",
+            "lecturer_id": "o16p17q18-r19s20t21-u22v23w24x25",
+            "lecturer_name": "Prof. Anna Kowalska",
+            "location_text": "Sala 202",
+            "location_utm": "UTM 33TWN654321",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 3,
+          "hour": "12:00-13:30",
+          "field": {
+            "subject_id": "c3d4e5f6-g7h8-i9j10-11k12-l13m14n15o16",
+            "subject_name": "Matematyka Dyskretna",
+            "lecturer_id": "p17q18r19-s20t21u22-v23w24x25y26",
+            "lecturer_name": "Dr. Piotr Wiśniewski",
+            "location_text": "Sala 303",
+            "location_utm": "UTM 33TWN789012",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "weekDay": "Wtorek",
+      "time": [
+        {
+          "number": 1,
+          "hour": "08:00-09:30",
+          "field": {
+            "subject_id": "d4e5f6g7-h8i9-10j11-11k12-l13m14n15o17",
+            "subject_name": "Bazy Danych",
+            "lecturer_id": "q18r19s20-t21u22v23-w24x25y26z27",
+            "lecturer_name": "Dr. Katarzyna Wójcik",
+            "location_text": "Sala 404",
+            "location_utm": "UTM 33TWN345678",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 2,
+          "hour": "10:00-11:30",
+          "field": {
+            "subject_id": "e5f6g7h8-i9j10-11k12-12l13-m14n15o16p17",
+            "subject_name": "Teoria Grafów",
+            "lecturer_id": "r19s20t21-u22v23w24-x25y26z27a28",
+            "lecturer_name": "Prof. Tomasz Lewandowski",
+            "location_text": "Sala 505",
+            "location_utm": "UTM 33TWN567890",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 3,
+          "hour": "12:00-13:30",
+          "field": {
+            "subject_id": "f6g7h8i9-j10k11-12l13-13m14-n15o16p17q18",
+            "subject_name": "Architektura Komputerów",
+            "lecturer_id": "s20t21u22-v23w24x25-y26z27a28b29",
+            "lecturer_name": "Dr. Marcin Kaczmarek",
+            "location_text": "Sala 606",
+            "location_utm": "UTM 33TWN678901",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "weekDay": "Środa",
+      "time": [
+        {
+          "number": 1,
+          "hour": "08:15-10:00",
+          "field": {
+            "subject_id": "g7h8i9j10-11k12-13l14-14m15-n16o17p18q19",
+            "subject_name": "Systemy Operacyjne",
+            "lecturer_id": "t21u22v23-w24x25y26-z27a28b29c30",
+            "lecturer_name": "Dr. Joanna Wiśniewska",
+            "location_text": "Sala 707",
+            "location_utm": "UTM 33TWN789012",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 2,
+          "hour": "10:15-12:00",
+          "field": {
+            "subject_id": "h8i9j10k11-12l13-14m15-15n16-o17p18q19r20",
+            "subject_name": "Sztuczna Inteligencja",
+            "lecturer_id": "u22v23w24-x25y26z27-a28b29c30d31",
+            "lecturer_name": "Prof. Marek Jabłoński",
+            "location_text": "Sala 808",
+            "location_utm": "UTM 33TWN890123",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 3,
+          "hour": "12:15-14:00",
+          "field": {
+            "subject_id": "i9j10k11l12-13m14-15n16-16o17-p18q19r20s21",
+            "subject_name": "Inżynieria Oprogramowania",
+            "lecturer_id": "v23w24x25-y26z27a28-b29c30d31e32",
+            "lecturer_name": "Dr. Anna Kowalczyk",
+            "location_text": "Sala 909",
+            "location_utm": "UTM 33TWN901234",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "weekDay": "Czwartek",
+      "time": [
+        {
+          "number": 1,
+          "hour": "08:15-10:00",
+          "field": {
+            "subject_id": "j10k11l12m13-14n15-16o17-17p18-q19r20s21t22",
+            "subject_name": "Sieci Komputerowe",
+            "lecturer_id": "w24x25y26-z27a28b29-c30d31e32f33",
+            "lecturer_name": "Dr. Piotr Lewandowski",
+            "location_text": "Sala 1010",
+            "location_utm": "UTM 33TWN012345",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 2,
+          "hour": "10:15-12:00",
+          "field": {
+            "subject_id": "k11l12m13n14-15o16-17p18-18q19-r20s21t22u23",
+            "subject_name": "Programowanie Funkcyjne",
+            "lecturer_id": "x25y26z27-a28b29c30-d31e32f33g34",
+            "lecturer_name": "Prof. Katarzyna Zielińska",
+            "location_text": "Sala 1111",
+            "location_utm": "UTM 33TWN123456",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 3,
+          "hour": "12:15-14:00",
+          "field": {
+            "subject_id": "l12m13n14o15-16p17-18q19-19r20-s21t22u23v24",
+            "subject_name": "Bezpieczeństwo Systemów",
+            "lecturer_id": "y26z27a28-b29c30d31-e32f33g34h35",
+            "lecturer_name": "Dr. Janusz Kwiatkowski",
+            "location_text": "Sala 1212",
+            "location_utm": "UTM 33TWN234567",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        }
+      ]
+    },
+    {
+      "weekDay": "Piątek",
+      "time": [
+        {
+          "number": 1,
+          "hour": "08:15-10:00",
+          "field": {
+            "subject_id": "m13n14o15p16-17q18-19r20-20s21-t22u23v24w25",
+            "subject_name": "Grafika Komputerowa",
+            "lecturer_id": "z27a28b29-c30d31e32-f33g34h35i36",
+            "lecturer_name": "Dr. Agnieszka Wróblewska",
+            "location_text": "Sala 1313",
+            "location_utm": "UTM 33TWN345678",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 2,
+          "hour": "10:15-12:00",
+          "field": {
+            "subject_id": "n14o15p16q17-18r19-20s21-21t22-u23v24w25x26",
+            "subject_name": "Metody Numeryczne",
+            "lecturer_id": "a28b29c30-d31e32f33-g34h35i36j37",
+            "lecturer_name": "Prof. Andrzej Piotrowski",
+            "location_text": "Sala 1414",
+            "location_utm": "UTM 33TWN456789",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        },
+        {
+          "number": 3,
+          "hour": "12:15-14:00",
+          "field": {
+            "subject_id": "o15p16q17r18-19s20-21t22-22u23-v24w25x26y27",
+            "subject_name": "Analiza Algorytmów",
+            "lecturer_id": "b29c30d31-e32f33g34-h35i36j37k38",
+            "lecturer_name": "Dr. Monika Nowak",
+            "location_text": "Sala 1515",
+            "location_utm": "UTM 33TWN567890",
+            "isCanceled": false,
+            "isPostponment": false,
+            "note": ""
+          }
+        }
+      ]
+    }
+  ]
+}
