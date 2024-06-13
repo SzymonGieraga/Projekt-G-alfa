@@ -16,13 +16,13 @@ const Event = ({event}) => {
             <div className={styles.event}>
                 {/* Head------------------------------------------------------------------- */}
                 <div className={styles.eventHead}>
-                    <h2 className={styles.eventTitle}>{event.title}</h2>
+                    <h2 className={styles.eventTitle}>{event.name}</h2>
                     <p className={styles.eventDate}><i>{format(new Date(event.created_at), "dd.MM.yyyy, HH:mm")}</i></p>
                 </div>
 
                 {/* Body------------------------------------------------------------------- */}
                 <div className={styles.eventBody}>
-                    <Content text={event.text} defaultSizeToDisplay={DEFAULT_TEXT_SIZE}/>
+                    <Content text={event.description} defaultSizeToDisplay={DEFAULT_TEXT_SIZE}/>
                 </div>
 
                 {/* Event details---------------------------------------------------------- */}
