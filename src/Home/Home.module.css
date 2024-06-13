@@ -53,10 +53,6 @@ body {
     margin:0;
     padding: 0;
 }
-.postMetaData{
-    margin-top:1em;
-
-}
 .postTitle {
     margin-top: 0;
     margin-bottom: 0;
@@ -78,16 +74,6 @@ body {
     padding: 0;
     line-height: 1.4;
     font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
-}
-
-.postEventDetails{
-    margin-top: 0.7em;
-    border-top: 1px solid rgb(92, 86, 86);
-    display: block;
-}
-
-.postEventDetails p{
-    margin: 0.2em 0;
 }
 
 .post .actions {

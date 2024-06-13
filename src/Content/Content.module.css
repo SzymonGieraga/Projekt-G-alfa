@@ -1,0 +1,17 @@
+.eventDetails{
+    margin-top: 0.7em;
+    border-top: 1px solid rgb(92, 86, 86);
+    display: block;
+}
+
+.eventDetails p{
+    margin: 0.2em 0;
+}
+
+.textSizeControll{
+    text-decoration: none;
+}
+
+.textSizeControll:visited{
+    color: #7A0019 !important;
+}

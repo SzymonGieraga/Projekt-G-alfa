@@ -1,0 +1,93 @@
+/* Styl zawartości strony */
+.content {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    max-height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
+}
+
+
+/* Styl pojedynczego postu */
+.event {
+    border: 1px solid #464545;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 10px; /* Zmniejszono margines między postami */
+    border-radius: 0.5em;
+    height: 20%; /* Zmniejszono wysokość postu */
+    position: relative;
+    width: 40em; /* Zmniejszono szerokość postu */
+    max-width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #AFAEAE; /* Kolor tła postu */
+}
+.eventHead{
+    display: flex;
+    justify-content: space-between;
+}
+.eventHead p{
+    margin:0;
+    padding: 0;
+}
+.eventMetaData{
+    margin-top:1em;
+
+}
+.eventTitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    padding-right: 0.3em;
+    font-size: 1.2em; /* Zmieniono rozmiar tytułu postu */
+}
+
+.eventDate{
+    font-size: 14px;
+}
+
+.eventBody {
+    margin-top: 1em; /* Mniejszy odstęp od treści postu */
+    margin-bottom: 0;
+    padding: 0;
+    line-height: 1.4;
+    font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
+}
+
+
+.event .actions {
+    text-align: right;
+    display: flex; 
+
+    flex-direction:row;
+    justify-content:space-between;
+    margin-top: 1em;
+}
+
+
+.actions .actionContainer {
+    display: flex;
+    width: 100%;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+
+.eventTakePart{
+    cursor: pointer;   
+}
+
+
+.moreActions {
+    margin-left: 10px;   
+    /* display: flex; */
+    flex-direction:row;
+    justify-content:space-between;
+    display: block;
+}
+
+.selectAction {
+    margin-right: 2px;
+    display: block;
+}
