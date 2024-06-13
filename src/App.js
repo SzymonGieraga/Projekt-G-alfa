@@ -6,6 +6,7 @@ import Home from "./Home/Home";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
 import PageNotFound from "./PageNotFound";
+import Events from "./Events/Events";
 
 const App = () => {
     const [title, setTitle] = useState('');
@@ -20,6 +21,7 @@ const App = () => {
                     <Route exact path='/home'><Home setTitle={setTitle} /></Route>
                     <Route exact path='/index.html'><Home setTitle={setTitle} /></Route>
                     <Route path='/ustawienia'><Settings setTitle={setTitle} /></Route>
+                    <Route path='/wydarzenia'><Events setTitle={setTitle} /></Route>
                     <Route path='/*'><PageNotFound setTitle={setTitle}/></Route>
                 
 
