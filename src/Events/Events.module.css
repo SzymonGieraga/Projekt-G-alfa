@@ -47,7 +47,7 @@
     font-size: 14px;
 }
 
-.eventtBody {
+.eventBody {
     margin-top: 1em; /* Mniejszy odstęp od treści postu */
     margin-bottom: 0;
     padding: 0;
@@ -55,15 +55,6 @@
     font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
 }
 
-.eventDetails{
-    margin-top: 0.7em;
-    border-top: 1px solid rgb(92, 86, 86);
-    display: block;
-}
-
-.eventDetails p{
-    margin: 0.2em 0;
-}
 
 .event .actions {
     text-align: right;
@@ -99,7 +90,4 @@
 .selectAction {
     margin-right: 2px;
     display: block;
-}
-.textSizeControll{
-    text-decoration: none;
 }

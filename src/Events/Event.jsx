@@ -1,23 +1,12 @@
 import styles from './Events.module.css'
 import { useState, useEffect } from 'react';
 import { format } from "date-fns";
+import EventDetails from '../Content/EventDetails';
+import Content from '../Content/Content';
 
 
 const Event = ({event}) => {
     const DEFAULT_TEXT_SIZE = 500;
-    const textSizeOverDefault = (event.text.length>DEFAULT_TEXT_SIZE);
-    const [showAll, setShowAll] = useState(!textSizeOverDefault);
-    const [contentToDisplay, setContentToDisplay] = useState('');
-    useEffect(()=>{
-        setContentToDisplay(showAll ? event.text : event.text.substring(0,DEFAULT_TEXT_SIZE));
-
-    },[showAll, event.text])
-
-    const setEntireTextVisibility = (e, val) => {
-        setShowAll(val);
-        e.preventDefault();
-    }
-
     const eventTakePart = (e) => {
 
     }
@@ -33,25 +22,11 @@ const Event = ({event}) => {
 
                 {/* Body------------------------------------------------------------------- */}
                 <div className={styles.eventBody}>
-                    {contentToDisplay}
-                    {!showAll && (
-                        <a className={styles.textSizeControll} 
-                        href='#' 
-                        onClick={(e) => setEntireTextVisibility(e, true)}>...</a>
-                    )}
-                    {showAll && textSizeOverDefault && (
-                        <a className={styles.textSizeControll} 
-                        href='#' 
-                        onClick={(e) => setEntireTextVisibility(e, false)}> Ukryj </a>
-                    )}
+                    <Content text={event.text} defaultSizeToDisplay={DEFAULT_TEXT_SIZE}/>
                 </div>
 
                 {/* Event details---------------------------------------------------------- */}
-                <div className={styles.eventDetails}>
-                    <p>Data: {format(new Date(event.date), "dd.MM.yyyy  (eeee)")} </p>
-                    <p>Czas: {event.time_starts} - {event.time_ends}</p>
-                    <p>Lokalizacja: {event.location}</p>
-                </div>
+                <EventDetails event={event}/>
 
                 {/* Actions---------------------------------------------------------------- */}
                 <div className={styles.actions}>

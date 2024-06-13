@@ -2,29 +2,18 @@ import styles from './Home.module.css'
 import CommentList from './CommentList';
 import { useState, useEffect } from 'react';
 import { format } from "date-fns";
+import EventDetails from '../Content/EventDetails';
+import Content from '../Content/Content';
 
 
 const Post = ({post}) => {
-    const [showComments, setShowComments] = useState(false);
     const DEFAULT_TEXT_SIZE = 500;
-
-    const textSizeOverDefault = (post.text.length>DEFAULT_TEXT_SIZE);
-    const [showAll, setShowAll] = useState(!textSizeOverDefault);
-    const [contentToDisplay, setContentToDisplay] = useState('');
-    useEffect(()=>{
-        setContentToDisplay(showAll ? post.text : post.text.substring(0,DEFAULT_TEXT_SIZE));
-
-    },[showAll, post.text])
-
+    const [showComments, setShowComments] = useState(false);
     const showCommentsButtonClickHandler = (e) => {
         setShowComments(!showComments);
         e.preventDefault();
     }
 
-    const setEntireTextVisibility = (e, val) => {
-        setShowAll(val);
-        e.preventDefault();
-    }
 
     const postTakePart = (e) => {
 
@@ -43,25 +32,11 @@ const Post = ({post}) => {
 
             {/* Body------------------------------------------------------------------- */}
             <div className={styles.postBody}>
-                {contentToDisplay}
-                {!showAll && (
-                    <a className={styles.textSizeControll} 
-                    href='#' 
-                    onClick={(e) => setEntireTextVisibility(e, true)}>...</a>
-                )}
-                {showAll && textSizeOverDefault && (
-                    <a className={styles.textSizeControll} 
-                    href='#' 
-                    onClick={(e) => setEntireTextVisibility(e, false)}> Ukryj </a>
-                )}
+                <Content text={post.text} defaultSizeToDisplay={DEFAULT_TEXT_SIZE}/>
             </div>
 
             {/* Event details---------------------------------------------------------- */}
-            {post.is_event && <div className={styles.postEventDetails}>
-                    <p>Data: {format(new Date(post.event.date), "dd.MM.yyyy  (eeee)")} </p>
-                    <p>Czas: {post.event.time_starts} - {post.event.time_ends}</p>
-                    <p>Lokalizacja: {post.event.location}</p>
-                </div>}
+            {post.is_event && <EventDetails event={post.event}/>}
 
             {/* Actions---------------------------------------------------------------- */}
             <div className={styles.actions}>
