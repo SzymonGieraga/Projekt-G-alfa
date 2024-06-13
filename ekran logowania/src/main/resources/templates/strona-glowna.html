@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Politechnika Łódzka | Ekran Logowania</title>
+        <link rel="stylesheet" href="/static/css/ekran logowania.css" />
+        <link rel="icon" href="/static/images/ikonka.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header> <h1>Czas na PŁ!</h1> </header>
+
+        <form >
+            <fieldset>
+                <div class="box">       
+                    <h2>To jest strona GÓWNA.</h2>
+                </div>
+
+                <br>
+                <div class="box">
+                    <button type="submit" class="button" onclick="logout()">Wyloguj</button>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="box">
+                    <img src="/static/images/logo.png" alt="Logo">
+                </div>
+            </fieldset>
+        </form>
+
+        <script>
+            function logout() {
+                window.location.href = '/api/logout';
+            }
+        </script>
+
+    </body>
+
+</html>
+
