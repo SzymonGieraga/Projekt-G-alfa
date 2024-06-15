@@ -58,7 +58,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0em 0 0 0;
     margin: 0;
     overflow-y: auto;
     width: 100%;
