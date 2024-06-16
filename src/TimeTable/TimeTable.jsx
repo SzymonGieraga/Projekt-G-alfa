@@ -1,24 +1,10 @@
-import './App.css';
-import logo1 from './images/Terminarz.png'
-import logo2 from './images/Plan zajec.png'
-import logo3 from './images/Tablica.png'
-import logo4 from './images/Wydarzenia.png'
-import logo5 from './images/Ustawienia.png'
+import './style.css';
 
-
-function App() {
+function TimeTable({session, setTitle}) {
+  setTitle("Plan zajęć")
   return (
   
-<div className='App'>
-
-  <div id="mySidenav" class="sidenav">
-      <a href='terms.html'><img src={logo1} alt="Terminarz"></img></a>
-      <a href='terms.html'><img src={logo2} alt="Plan zajęć"></img></a>
-      <a href='terms.html'><img src={logo3} alt="Tablica"></img></a>
-      <a href='terms.html'><img src={logo4} alt="Wydarzenia"></img></a>
-      <a href='terms.html'><img src={logo5} alt="Ustawienia"></img></a>
-    </div>
-
+<div className='TimeTable'>
 
     <div className="header-container">
       <div className="header">
@@ -190,4 +176,4 @@ function App() {
   );
 }
 
-export default App;
+export default TimeTable;
