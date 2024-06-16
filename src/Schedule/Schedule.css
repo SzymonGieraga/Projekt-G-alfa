@@ -21,6 +21,9 @@
     align-items: flex-start;
     margin-top: 20px;
 }
+.schedule ul {
+    list-style-type: none; /* Remove the default dot from the list items */
+}
 
 .day-column {
     width: 100%;
