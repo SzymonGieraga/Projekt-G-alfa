@@ -25,7 +25,6 @@ body {
 
 /* Kontener dla zawartości, który zapewnia odpowiednie odstępy */
 .contentContainer {
-    margin-left: 9vh;
     max-width: calc(100% - 18vh); /* Szerokość kontenera zmniejszona o szerokość panelu bocznego */
     height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
 }

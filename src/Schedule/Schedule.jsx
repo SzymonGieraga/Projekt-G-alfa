@@ -14,6 +14,8 @@ const specificUserId = '0105e29b-1bac-4563-b519-26ce94d478d2';
 const daysOfWeek = ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela'];
 const startDate = new Date(2024, 5, 3); // 03.06.2024
 
+
+
 const calculateWeekAndDay = (date) => {
     const diff = (date - startDate) / (1000 * 60 * 60 * 24);
     const week = Math.floor(diff / 7) + 1;
@@ -184,7 +186,8 @@ const ActivityForm = ({ onSave, onCancel }) => {
     );
 };
 
-const Schedule = () => {
+const Schedule = ({setTitle}) => {
+    setTitle("Terminarz");
     const currentDate = new Date();
     const { week: currentWeek } = calculateWeekAndDay(currentDate);
     const [week, setWeek] = useState(currentWeek);

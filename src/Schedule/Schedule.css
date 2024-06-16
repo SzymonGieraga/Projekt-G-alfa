@@ -3,6 +3,8 @@
     padding: 20px;
     width: 100%;
     margin-right: 10vw;
+    right: 5px;
+
 
 }
 
@@ -66,7 +68,7 @@
 }
 
 .activity-form form div {
-    margin-bottom: 15px; /* Zwiększony odstęp między liniami */
+    margin-bottom: 8px; /* Zwiększony odstęp między liniami */
 }
 
 .activity-form button[type="button"] {
