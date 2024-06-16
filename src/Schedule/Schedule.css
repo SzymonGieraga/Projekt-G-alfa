@@ -70,5 +70,5 @@
 }
 
 .activity-form button[type="button"] {
-    margin-bottom: 10px; /* Odstęp między przyciskiem a formularzem */
+    margin-bottom: 0px; /* Odstęp między przyciskiem a formularzem */
 }
