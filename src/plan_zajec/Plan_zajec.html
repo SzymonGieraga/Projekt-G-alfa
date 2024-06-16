@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ogloszenia</title>
+  <style>
+
+
+    /* Ogolny styl dla calego dokumentu */
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+    }
+
+
+    /* Kontener dla calej zawartosci strony */
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+
+    /* Styl naglowka */
+    .header {
+      background-color: #7A0019;
+      color: #fff;
+      font-size: larger;
+      padding-top: 10px;
+      text-align: center;
+      height: 8vh;
+    }
+
+    /* Kontener dla naglowka, ktory jest przyklejony do gory strony */
+    .header-container {
+      position: sticky;
+      top: 0;
+      background-color: #f8f8f8;
+      z-index: 1;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    /* Styl zawartosci strony */
+    .content {
+      width: 100%;
+      padding: 20px;
+      background-color: #ffffff;
+      overflow-y: auto;
+      max-height: calc(100vh - 8vh); /* Maksymalna wysokosc kontenera minus wysokosc naglowka */
+    }
+
+    /* Kontener dla zawartosci, ktory zapewnia odpowiednie odstepy */
+    .content-container {
+      margin-left: 9vh;
+      max-width: calc(100% - 18vh); /* Szerokosc kontenera zmniejszona o szerokosc panelu bocznego */
+      height: calc(100vh - 8vh); /* Maksymalna wysokosc kontenera minus wysokosc naglowka */
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    /* Styl dla bocznego paska nawigacyjnego */
+    .sidenav {
+      margin-top: 8vh;
+      height: 100vh;
+      width: 100%;
+      max-width: 9vw;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #7A0019;
+    }
+
+    .sidenav a {
+      padding: 15% 15% 15% 17%;
+      text-decoration: none;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav img {
+      width: 100%;
+      height: auto;
+      max-height: 50vh;
+      max-width: 40vw;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+      background: #660016;
+      position: relative;
+      background-color: #660016;
+    }
+
+    @media screen and (max-height: 900px) {
+      .sidenav img {
+        max-height: 40vh;
+     
+
+      }
+    }
+
+    @media screen and (max-height: 700px) {
+      .sidenav img {
+        max-height: 30vh;
+      }
+    }
+
+    @media screen and (max-height: 500px) {
+      .sidenav img {
+        max-height: 20vh;
+      }
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+      .sidenav a {
+        font-size: 18px;
+      }
+      .sidenav img {
+        max-height: 15vh;
+      }
+    }
+
+
+/* Styl dla przyciskow do zmiany zdjec */
+.button {
+      position: fixed;
+      top: 55%;
+      transform: translateY(-50%);
+      background-color: #7A0019;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .button.left {
+      left: 0;
+      margin-left: 10%;
+    }
+
+    .button.right {
+      right: 0;
+      margin-right: 5%;
+    }
+
+    /* Kontener na zdjecia */
+    .image-container {
+      position: relative;
+      width: 80%;
+      margin-left: 15vw;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      display: none;
+    }
+
+    .image-container img.active {
+      display: block;
+    }
+
+
+  </style>
+</head>
+
+
+<body>
+  
+  <!-- Pasek boczny nawigacyjny -->
+  <div id="mySidenav" class="sidenav">
+    <a href='terms.html'><img src="Terminarz.png" alt="Terminarz"></a>
+    <a href='terms.html'><img src="Plan zajec.png" alt="Plan zajęć"></a>
+    <a href='terms.html'><img src="Tablica.png" alt="Tablica"></a>
+    <a href='terms.html'><img src="Wydarzenia.png" alt="Wydarzenia"></a>
+    <a href='terms.html'><img src="Ustawienia.png" alt="Ustawienia"></a>
+  </div>
+
+  <!-- Kontener naglowka -->
+  <div class="header-container">
+    <div class="header">
+      <h1>Plany Zajec</h1>
+    </div>
+  </div>
+
+
+  <!-- Kontener na zdjecia -->
+
+
+  <div class="image-container">
+    <button class="button left" onclick="prevImage()">&#10094;</button>
+    <img src="4I1.png" alt="4I1" class="active">
+    <img src="4I2.png" alt="4I2">
+    <img src="4I3.png" alt="4I3">
+    <img src="4I4.png" alt="4I4">
+    <img src="4I5.png" alt="4I5">
+    <img src="4I6.png" alt="4I6">
+    <img src="4I7.png" alt="4I7">
+    <img src="4I8.png" alt="4I8">
+
+
+    <!-- Dodawanie wiecej planow zajec tutaj -->
+    <button class="button right" onclick="nextImage()">&#10095;</button>
+  </div>
+
+  <script>
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.image-container img');
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      currentImageIndex = (currentImageIndex + 1) % images.length;
+      showImage(currentImageIndex);
+    }
+
+    function prevImage() {
+      currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+      showImage(currentImageIndex);
+    }
+  </script>
+
+
+</body>
+
+</html>

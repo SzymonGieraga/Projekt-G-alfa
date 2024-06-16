@@ -1,22 +1,9 @@
 import style from './Home.module.css'
 import React from 'react';
+import useTextArea from '../Hooks/useTextArea';
 
-const AddCommentForm = () => {
-    const textareaRef = React.useRef(null);
-    const [value, setValue] = React.useState("");
-    const onChange = (event) => setValue(event.target.value);
-    const MIN_TEXTAREA_HEIGHT = 32;
-
-    React.useLayoutEffect(() => {
-        // Reset height - important to shrink on delete
-        textareaRef.current.style.height = "inherit";
-        // Set height
-        textareaRef.current.style.height = `${Math.max(
-        textareaRef.current.scrollHeight,
-        MIN_TEXTAREA_HEIGHT
-        )}px`;
-    }, [value]);
-
+const AddCommentForm = ({post_id}) => {
+    const {value, textareaRef, onChange} = useTextArea(32);
 
     const addComment = (e) => {
         e.preventDefault();
