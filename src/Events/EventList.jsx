@@ -1,9 +1,9 @@
 import Event from "./Event";
 import styles from './Events.module.css'
 
-const EventList = ({events}) => {
+const EventList = ({events, session}) => {
     return ( <div className={styles.eventsList}>{events.toReversed().map((event => (
-        <Event event={event}/>
+        <Event session={session} event={event}/>
     )))}
     </div> );
 }

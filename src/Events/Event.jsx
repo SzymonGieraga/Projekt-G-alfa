@@ -3,16 +3,53 @@ import { useState, useEffect } from 'react';
 import { format } from "date-fns";
 import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
+import supabase from '../config/supabaseClient';
 
 
-const Event = ({event}) => {
+const Event = ({event, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
-    const eventTakePart = (e) => {
+    const [takePart, setTakePart] = useState(false);
 
+    useEffect(()=>{
+        if (!session) return;
+        supabase.from('event_participations')
+        .select()
+        .eq('event_id', event.id)
+        .then(({data})=>{
+            if (data && data.length>0) setTakePart(true);
+        })
+
+    }, [session])
+
+
+    const eventTakePart = async (e) => {
+            if (!session) return;
+            setTakePart(e.target.checked)
+            if(e.target.checked){
+                await supabase
+                .from('event_participations')
+                .insert([
+                    { user_id: session.user.id, event_id: event.id }
+                ]).then(({error})=>{
+                    if (error){
+                        console.log(error);
+                    }
+                })
+            }
+            else{
+                await supabase
+                .from('event_participations')
+                .delete()
+                .eq('user_id', session.user.id)
+                .eq('event_id', event.id)
+                .then(({error}) => {
+                    if (error) console.log(error);
+                })
+            }
     }
 
     return ( 
-        <arcticle>
+        <article>
             <div className={styles.event}>
                 {/* Head------------------------------------------------------------------- */}
                 <div className={styles.eventHead}>
@@ -31,9 +68,9 @@ const Event = ({event}) => {
                 {/* Actions---------------------------------------------------------------- */}
                 <div className={styles.actions}>
                     <label className={styles.eventTakePart}>
-                            <input type="checkbox" onClick={(e)=>eventTakePart(e)}/> 
+                            <input type="checkbox" checked={takePart} onChange={(e)=>eventTakePart(e)}/> 
                             Wezmę udział
-                        </label>
+                    </label>
 
                     <select required className={styles.selectAction}>
                         <option value="all">Wiecej akcji</option>
@@ -42,7 +79,7 @@ const Event = ({event}) => {
                     </select>
                 </div>
             </div>
-        </arcticle>
+        </article>
      );
 }
  
