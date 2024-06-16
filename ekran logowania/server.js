@@ -120,6 +120,7 @@ app.get('/api/reset-password/info', (req, res) => {
 });
 
 app.get('/api/new-password', (req, res) => {
+  const token = req.query.token;
   res.sendFile(path.join(__dirname, 'src/main/resources/templates/nowe-haslo.html'));
 });
 
@@ -130,7 +131,9 @@ app.get('/api/new-password/info', (req, res) => {
 app.post('/api/reset-password', async (req, res) => {
   const { email } = req.body;
 
-  const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: 'https://localhost:8080/api/new-password',
+  });
 
   if (error) {
     console.error('Error sending password reset email:', error);
@@ -138,6 +141,22 @@ app.post('/api/reset-password', async (req, res) => {
   }
 
   res.redirect('/api/reset-password/info');
+});
+
+app.post('/api/new-password', async (req, res) => {
+  const { password, token } = req.body;
+
+  const { data, error } = await supabase.auth.updateUser({
+    password: password,
+    access_token: token,
+  });
+
+  if (error) {
+    console.error('Error updating password:', error.message);
+    return res.status(400).send('Wystąpił błąd podczas aktualizacji hasła.');
+  }
+
+  res.redirect('/api/new-password/info');
 });
 
 app.get('/api/logout', (req, res) => {
