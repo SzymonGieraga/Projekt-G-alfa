@@ -51,7 +51,7 @@ const checkAlreadyAuthenticated = async (req, res, next) => {
 };
 
 app.use((req, res, next) => {
-  if (['/api/login', '/api/reset-password', '/api/reset-password/info', '/api/new-password',
+  if (['/api/login', '/api/login?error=1', '/api/reset-password', '/api/reset-password/info', '/api/new-password',
      '/api/new-password/info','/api/logout'].includes(req.path)) 
   {
     return next();
@@ -80,7 +80,7 @@ app.post('/api/login', async (req, res) => {
 
   if (!dbUser) {
     console.log('User not found in database');
-    return res.redirect('/api/login');
+    return res.redirect('/api/login?error=1');
   }
 
   console.log('Logging in user:', dbUser.email);

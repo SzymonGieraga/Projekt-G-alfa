@@ -93,8 +93,8 @@ a:hover{
     font-size: 20px;
 }
 
-.error-message {
-    color: #7A0019;
+#error-message {
+    color: red;
     font-weight: bold;
     margin-top: 10px;
 }
