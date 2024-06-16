@@ -36,7 +36,7 @@ const Post = ({post}) => {
             </div>
 
             {/* Event details---------------------------------------------------------- */}
-            {post.is_event && <EventDetails event={post.event}/>}
+            {/* {post.is_event && <EventDetails event={post}/>} */}
 
             {/* Actions---------------------------------------------------------------- */}
             <div className={styles.actions}>

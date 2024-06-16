@@ -8,7 +8,6 @@ function TimeTable({session, setTitle}) {
 
     <div className="header-container">
       <div className="header">
-              <h1>Plany Zajec</h1>
                 <div className="group-selector-container">
                   <label for="group-select-button">Plan grupy:</label>
                   <select className = "group-select-button" id = "group-select" onchange="changeImage()">

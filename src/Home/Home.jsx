@@ -5,7 +5,7 @@ import butonImage from '../images/add-button.png'
 import useFetch from '../Hooks/useFetch.js';
 import AddPostForm from './AddPostForm.jsx';
 
-const Home = ({setTitle}) => {
+const Home = ({setTitle, session}) => {
   setTitle("Ogłoszenia");
   // const [posts, setPosts] = useState([
   //   {title:"Post 1", comments:[
@@ -26,8 +26,9 @@ const Home = ({setTitle}) => {
   //   {title:"Post 3", text:"Lorem ipsum dolor sit amen", comments:[{author:"L.", text:"Testowy komentarz3"}]}
   // ]);
   const [reload, setReload] = useState(false);
-  const {data:posts, isLoading, error} = useFetch("http://localhost:8000/posts", reload);
+  const {data:posts, isLoading, fetchError} = useFetch("posts", reload, session);
   const [showAddPostForm, setShowAddPostForm] = useState(false);
+  console.log(posts)
 
   const addPostSubmitHandler = ()=>{
     setShowAddPostForm(false);
@@ -44,7 +45,7 @@ const Home = ({setTitle}) => {
       {/* <!-- Dodatkowe posty będą tutaj dodawane --> */}
       {posts && (<PostList posts={posts}/>)}
       {isLoading && <p>Ładowanie...</p>}
-      {error && <p>{error.name}</p>}
+      {fetchError && <p>{fetchError}</p>}
     </div>
   </div>
 

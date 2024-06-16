@@ -1,39 +1,37 @@
 import { useState, useEffect } from "react";
+import supabase from "../config/supabaseClient";
 
-const useFetch = (url, reload) => {
-    const  [data, setData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-  
-    useEffect(() => {
-      const abortCont = new AbortController();
-          fetch(url, {signal: abortCont.signal})
-          .then(res => {
-              console.log(res)
-              if (!res.ok){
-                  throw Error('Could not fetch data');
-              }
-              return res.json();
-          })
-          .then(data=>{
-              console.log(data);
-              setData(data);
-              setError(null);
-              setIsLoading(false);
-          })
-          .catch(err => {
-              if (err.name === 'AbortError'){
-                  console.log("fetch aborted")
-              }
-              else{
-                  setError(err)
-                  setIsLoading(false);
-                  console.log(err);
-              }
-          })
-      return () => abortCont.abort();
-    }, [url, reload])
-    return {data, isLoading, error}
+const useFetch = (table, reload, session) => {
+  const [fetchError, setFetchError] = useState(null);
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+    const fetchData = async () =>{
+        setIsLoading(true);
+        console.log(supabase)
+        await supabase
+        .from(table)
+        .select()
+        .then(({data:d, error}) => {
+            if (error){
+                setFetchError("Nie udało się pobrać danych")
+                console.log(error);
+                setData(null);
+                setIsLoading(false);
+            }
+
+            if (d){
+            setData(d);
+            setFetchError(null);
+            setIsLoading(false);
+            }
+        })
+    }
+
+  useEffect(()=>{
+    if (!session) return
+    fetchData();
+  },[table, reload, session])
+    return {data, isLoading, fetchError}
   }
   
  

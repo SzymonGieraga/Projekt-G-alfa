@@ -7,39 +7,36 @@ import supabase from '../config/supabaseClient.js';
 const Events = ({setTitle, session}) => {
   setTitle("Wydarzenia");
   const [reload, setReload] = useState(false);
-  const [fetchError, setFetchError] = useState(null);
-  // const {data:events, isLoading, error} = useFetch("http://localhost:8000/events", reload);
-  const [events, setEvents] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [fetchError, setFetchError] = useState(null);
+  // const [events, setEvents] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
  
+  // const fetchEvents = async () =>{
+  //   setIsLoading(true);
+  //   console.log(supabase)
+  //   await supabase
+  //   .from("events")
+  //   .select()
+  //   .then(({data, error}) => {
+  //       if (error){
+  //           setFetchError("Nie udało się pobrać wydarzeń")
+  //           console.log(error);
+  //           setEvents(null);
+  //           setIsLoading(false);
+  //       }
 
-  useEffect(()=>{
-    const fetchEvents = async () =>{
-      setIsLoading(true);
-      console.log(supabase)
-      await supabase
-      .from("events")
-      .select()
-      .then(({data, error}) => {
-          if (error){
-              setFetchError("Nie udało się pobrać wydarzeń")
-              console.log(error);
-              setEvents(null);
-              setIsLoading(false);
-          }
+  //       if (data){
+  //         setEvents(data);
+  //         setFetchError(null);
+  //         setIsLoading(false);
+  //       }
+  //   })
+  // }
 
-          if (data){
-            console.log("hello")
-            console.log(session)
-            console.log(data)
-            setEvents(data);
-            setFetchError(null);
-            setIsLoading(false);
-          }
-      })
-    }
-    fetchEvents();
-  },[])
+  // useEffect(()=>{
+  //   fetchEvents();
+  // },[])
+  const {data:events, fetchError, isLoading} = useFetch("events", reload, session);
 
   return ( 
     <div>
