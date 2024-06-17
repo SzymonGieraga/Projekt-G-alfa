@@ -4,20 +4,58 @@ import { useState, useEffect } from 'react';
 import { format } from "date-fns";
 import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
+import supabase from '../config/supabaseClient';
 
 
 const Post = ({post, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
     const [showComments, setShowComments] = useState(false);
+
+    const [takePart, setTakePart] = useState(false);
+
+    useEffect(()=>{
+        if (!session) return;
+        supabase.from('post_event_participations')
+        .select()
+        .eq('post_id', post.id)
+        .then(({data})=>{
+            if (data && data.length>0) setTakePart(true);
+        })
+
+    }, [session])
+
+
+    const postTakePart = async (e) => {
+            if (!session) return;
+            setTakePart(e.target.checked)
+            if(e.target.checked){
+                await supabase
+                .from('post_event_participations')
+                .insert([
+                    { user_id: session.user.id, post_id: post.id }
+                ]).then(({error})=>{
+                    if (error){
+                        console.log(error);
+                    }
+                })
+            }
+            else{
+                await supabase
+                .from('post_event_participations')
+                .delete()
+                .eq('user_id', session.user.id)
+                .eq('post_id', post.id)
+                .then(({error}) => {
+                    if (error) console.log(error);
+                })
+            }
+    }
     const showCommentsButtonClickHandler = (e) => {
         setShowComments(!showComments);
         e.preventDefault();
     }
 
 
-    const postTakePart = (e) => {
-
-    }
 
     return ( 
         <div className={styles.post}>
@@ -46,7 +84,7 @@ const Post = ({post, session}) => {
                 </a>
 
                 {post.is_event && <label className={styles.postTakePart}>
-                        <input type="checkbox" onClick={(e)=>postTakePart(e)}/> 
+                        <input type="checkbox" checked={takePart} onChange={(e)=>postTakePart(e)}/> 
                         Wezmę udział
                     </label>}
 
