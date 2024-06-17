@@ -9,8 +9,8 @@ import PageNotFound from "./PageNotFound";
 import supabase from "./config/supabaseClient";
 import Events from "./Events/Events";
 import { useEffect } from "react";
-import TimeTable from "./TimeTable/TimeTable";
-// import Schedule from "./Schedule/Schedule";  // Import the new Schedule component
+import TimeTable from "./plan_zajec/TimeTable";
+import Schedule from "./Schedule/Schedule";
 
 const App = () => {
     const [title, setTitle] = useState('');
@@ -41,8 +41,8 @@ const App = () => {
                     <Route exact path='/index.html'><Home session={session} setTitle={setTitle} /></Route>
                     <Route path='/ustawienia'><Settings session={session} setTitle={setTitle} /></Route>
                     <Route path='/wydarzenia'><Events session={session} setTitle={setTitle} /></Route>
-                    <Route path='/plan-zajec'><TimeTable session={session} setTitle={setTitle} /></Route>
-                    {/* <Route path='/schedule'><Schedule setTitle={setTitle} /></Route>  // Add the new route */}
+                    <Route path='/plan-zajec'><TimeTable  setTitle={setTitle} /></Route>
+                    <Route path='/terminarz'><Schedule session={session} setTitle={setTitle} /></Route>  
                     <Route path='/*'><PageNotFound setTitle={setTitle}/></Route>
                 </Switch>
             </div>

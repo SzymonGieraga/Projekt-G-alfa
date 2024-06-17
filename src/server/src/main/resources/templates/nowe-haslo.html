@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Politechnika Łódzka | Ekran Logowania</title>
+        <link rel="stylesheet" href="/static/css/ekran logowania.css" />
+        <link rel="icon" href="/static/images/ikonka.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header> <h1>Czas na PŁ!</h1> </header>
+
+        <form id="new-password-form" method="post" action="/api/new-password">
+            <fieldset>
+                <div class="box">
+                    <p id="error-message"></p>
+                </div>
+
+                <br>
+                <div class="box">       
+                    <label for="new-password">Podaj nowe hasło</label>
+                    <br>
+                    <input type="password" id="new-password" name="new-password" required>
+                </div>
+
+                <br>
+                <div class="box">       
+                    <label for="confirm-password">Powtierdź nowe hasło</label>
+                    <br>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+
+                <br>
+                <br>
+                <div class="box">
+                    <button type = "submit" class="button">Wyślij</button>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="box">
+                    <img src="/static/images/logo.png" alt="Logo">
+                </div>
+            </fieldset>
+        </form>
+        <script src="/static/js/new-password.js"></script>
+    </body>
+
+</html>

@@ -35,6 +35,41 @@ function Settings({setTitle}) {
     document.body.className = `${theme} ${fontSizeName}`;
   };
 
+  const handleLogout = () => {
+    fetch('/api/logout', {
+      method: 'GET',
+      credentials: 'include'
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('Wylogowanie powiodło się, przekierowanie na /api/login');
+          window.location.href = '/api/logout';
+        } else {
+          console.log('Błąd podczas wylogowania:', response.statusText);
+        }
+      })
+      .catch(error => {
+        console.error('Błąd podczas wylogowania:', error);
+      });
+  };
+
+  const handleReset = () => {
+    fetch('/api/new-password', {
+      method: 'GET',
+      credentials: 'include'
+    })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = '/api/new-password';
+        } else {
+          console.log(response.statusText);
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   return (
     <div >
       {categories.map((category) => (
@@ -60,7 +95,12 @@ function Settings({setTitle}) {
                   } else if (category.name === 'Rozmiar czcionki') {
                     handleFontSizeChange(option.toLowerCase() === 'mała' ? 'font-small' : 
                                          option.toLowerCase() === 'średnia' ? 'font-medium' : 'font-large');
-                  } else {
+                  } else if(category.name === 'Twoje konto'){
+                      if(option === 'Wyloguj się')
+                        handleLogout();
+                      if(option === 'Zmień hasło')
+                        handleReset();
+                  }else{
                     console.log(option);
                   }
                 }}>

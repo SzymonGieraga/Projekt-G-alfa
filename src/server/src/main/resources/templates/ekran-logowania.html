@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Politechnika Łódzka | Ekran Logowania</title>
+        <link rel="stylesheet" href="/static/css/ekran logowania.css" />
+        <link rel="icon" href="/static/images/ikonka.png" type="image/x-icon">
+    </head>
+
+    <body>
+        <header> <h1>Czas na PŁ!</h1> </header>
+
+        <form id="loginForm" method="post" action="/api/login">
+            <fieldset>
+                <div class="box">
+                    <p id="error-message"></p>
+                </div>
+
+                <br>
+                <div class="box">       
+                    <label for="login">Login</label>
+                    <br>
+                    <input type="text" id="login" name="login" required>
+                </div>
+
+                <br>
+                <div class="box">
+                    <label  for="password">Hasło</label>
+                    <br>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <a href="reset-password">Zapomniałeś(aś) hasła?</a>
+                </div>
+
+                <br>
+                <br>
+                <div class="box">
+                    <button type="submit" class="button">Zaloguj</button>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="box">
+                    <img src="/static/images/logo.png" alt="Logo">
+                </div>
+            </fieldset>
+        </form>
+
+        <script src="/static/js/error-invalid-login.js"></script>
+
+    </body>
+
+</html>
+

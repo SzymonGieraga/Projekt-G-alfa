@@ -1,0 +1,39 @@
+.timetable-container {
+  position: relative;
+  text-align: center;
+}
+
+.timetable-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timetable-image {
+  max-width: 100%;
+  max-height: 80vh; /* Adjust as needed */
+  display: none;
+}
+
+.timetable-image.active {
+  display: block;
+}
+.button {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #7A0019;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .button.left {
+    left: 5vw;
+  }
+  
+  .button.right {
+    right: 5vw;
+  }
