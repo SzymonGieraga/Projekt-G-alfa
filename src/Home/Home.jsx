@@ -54,7 +54,7 @@ const Home = ({setTitle, session}) => {
     +
   </button>
   {/* <!-- Formularz do dodawania nowego postu --> */}
-  {showAddPostForm && <AddPostForm onSubmit={addPostSubmitHandler} onCancel={()=>setShowAddPostForm(false)}/>}
+  {showAddPostForm && <AddPostForm reload={reload} setReload={setReload} onSubmit={addPostSubmitHandler} onCancel={()=>setShowAddPostForm(false)} session={session}/>}
 
   </div>
    );
