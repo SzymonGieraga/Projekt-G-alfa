@@ -6,7 +6,7 @@ import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
 
 
-const Post = ({post}) => {
+const Post = ({post, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
     const [showComments, setShowComments] = useState(false);
     const showCommentsButtonClickHandler = (e) => {
@@ -25,7 +25,7 @@ const Post = ({post}) => {
             <div className={styles.postHead}>
                 <h2 className={styles.postTitle}>{post.title}</h2>
                 <div className={styles.postMetaData}>
-                    <p className={styles.postAuthorName}><strong>{post.author}</strong></p>
+                    <p className={styles.postAuthorName}><strong>{post.first_name} {post.last_name}</strong></p>
                     <p className={styles.postDate}><i>{format(new Date(post.created_at), "dd.MM.yyyy, HH:mm")}</i></p>
                 </div>
             </div>
@@ -36,7 +36,7 @@ const Post = ({post}) => {
             </div>
 
             {/* Event details---------------------------------------------------------- */}
-            {/* {post.is_event && <EventDetails event={post}/>} */}
+            {post.is_event && <EventDetails event={post}/>}
 
             {/* Actions---------------------------------------------------------------- */}
             <div className={styles.actions}>
@@ -59,7 +59,7 @@ const Post = ({post}) => {
 
 
             {/* Comments--------------------------------------------------------------- */}
-            {showComments && (<CommentList post_id={post.id}/>)}
+            {showComments && (<CommentList post_id={post.id} session={session}/>)}
         </div>
      );
 }

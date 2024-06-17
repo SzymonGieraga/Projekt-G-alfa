@@ -4,21 +4,25 @@ import AddCommentForm from './AddCommentForm';
 import useFetch from '../Hooks/useFetch';
 import { useState, useEffect } from 'react';
 
-const CommentList = ({post_id}) => {
+const CommentList = ({post_id, session}) => {
 
     const [comments, setComments] = useState([]);
-    const {data:commentList, isLoading, error} = useFetch(`http://localhost:8000/comments/${post_id}`)
+    const [reload, setReload] = useState(false);
+    const {data:commentList, isLoading, fetchError} = useFetch('comments_view', reload, session)
 
     useEffect(() =>{
-        setComments(commentList.comments);
+        if (!commentList) return;
+        console.log(commentList)
+        setComments(commentList.filter((comment) => comment.post_id === post_id));
+        
     },[commentList])
     return ( 
         <div className={styles.commentList}>
-            <AddCommentForm/>
-            {comments && comments.map(comment => (
+            <AddCommentForm session={session} post_id={post_id}/>
+            {commentList && comments.map(comment => (
                 <Comment comment={comment}/>
             ))}
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p>Ładowanie...</p>}
         </div>
      );
 }
