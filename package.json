@@ -1,4 +1,5 @@
 {
+    "homepage": "http:///SzymonGieraga.github.io/projekt-g-alfa",
     "name": "projekt-g-alfa",
     "version": "1.0.0",
     "main": "server.js",
@@ -27,7 +28,9 @@
         "start": "node server.js",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
