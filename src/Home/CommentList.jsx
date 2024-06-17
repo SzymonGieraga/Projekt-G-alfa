@@ -18,7 +18,7 @@ const CommentList = ({post_id, session}) => {
     },[commentList])
     return ( 
         <div className={styles.commentList}>
-            <AddCommentForm session={session} post_id={post_id}/>
+            <AddCommentForm session={session} post_id={post_id} setReload={setReload} reload={reload}/>
             {commentList && comments.map(comment => (
                 <Comment comment={comment}/>
             ))}
