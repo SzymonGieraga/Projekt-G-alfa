@@ -14,7 +14,7 @@ const useTextArea = (min_textarea_height) => {
         min_textarea_height
         )}px`;
     }, [value]);
-    return {value, textareaRef, onChange};
+    return {value, textareaRef, onChange, setValue};
 }
  
 export default useTextArea;

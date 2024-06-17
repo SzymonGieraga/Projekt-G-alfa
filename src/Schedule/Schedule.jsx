@@ -26,6 +26,7 @@ const Schedule = ({ setTitle, session }) => {
     const [week, setWeek] = useState(currentWeek);
     const [activities, setActivities] = useState([]);
     const [events, setEvents] = useState([]);
+    const [postEvents, setPostEvents] = useState([]);
     const [isFormVisible, setIsFormVisible] = useState(false);
 
     useEffect(() => {
@@ -72,8 +73,35 @@ const Schedule = ({ setTitle, session }) => {
                     end: new Date(`2024-06-03T${event.ends_at}`)
                 }));
 
+                const { data: postEventParticipationsData, error: postEventParticipationsError } = await supabase
+                    .from('post_event_participations')
+                    .select('post_id')
+                    .eq('user_id', session.user.id);
+
+                if (postEventParticipationsError) {
+                    throw postEventParticipationsError;
+                }
+
+                const postIds = postEventParticipationsData.map(participation => participation.post_id);
+
+                const { data: postsData, error: postsError } = await supabase
+                    .from('posts')
+                    .select('*')
+                    .in('id', postIds);
+
+                if (postsError) {
+                    throw postsError;
+                }
+
+                const formattedPostEvents = postsData.map(post => ({
+                    ...post,
+                    start: new Date(`2024-06-03T${post.starts_at}`),
+                    end: new Date(`2024-06-03T${post.ends_at}`)
+                }));
+
                 setActivities(formattedActivities);
                 setEvents(formattedEvents);
+                setPostEvents(formattedPostEvents);
             } catch (error) {
                 console.error('Error fetching data:', error.message);
             }
@@ -124,6 +152,10 @@ const Schedule = ({ setTitle, session }) => {
         const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
         return eventWeekAndDay.week === week;
     }), [events, week]);
+    const filteredPostEvents = useMemo(() => postEvents.filter(postEvent => {
+        const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
+        return postEventWeekAndDay.week === week;
+    }), [postEvents, week]);
 
     return (
         <div className="schedule-body">
@@ -150,10 +182,22 @@ const Schedule = ({ setTitle, session }) => {
                                     {event.name}:  {event.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {event.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
                                 </li>
                             ))}
+                            {filteredPostEvents.filter(postEvent => {
+                                const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
+                                return postEventWeekAndDay.dayOfWeek === day;
+                            }).map((postEvent, index) => (
+                                <li key={index} className="post-event-item">
+                                    {postEvent.title}: {postEvent.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {postEvent.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
+                                </li>
+                            ))}
                             {filteredActivities.filter(activity => activity.week_day === day).length === 0 &&
                             filteredEvents.filter(event => {
                                 const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
                                 return eventWeekAndDay.dayOfWeek === day;
+                            }).length === 0 &&
+                            filteredPostEvents.filter(postEvent => {
+                                const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
+                                return postEventWeekAndDay.dayOfWeek === day;
                             }).length === 0 && (
                                 <li className="no-activity">Żadnych aktywności tego dnia</li>
                             )}

@@ -9,7 +9,7 @@ const Comment = ({comment}) => {
     return ( 
         <div className={styles.comment}>
             <div className={styles.commentHead}>
-                <h3 className={styles.commentAuthor}>{comment.author}</h3>
+                <h3 className={styles.commentAuthor}>{comment.first_name} {comment.last_name}</h3>
                 <p className={styles.commentDate}>
                     <i>{format(new Date(comment.created_at), "dd.MM.yyyy, HH:mm")}</i>
                 </p>

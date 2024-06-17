@@ -26,7 +26,7 @@ const Home = ({setTitle, session}) => {
   //   {title:"Post 3", text:"Lorem ipsum dolor sit amen", comments:[{author:"L.", text:"Testowy komentarz3"}]}
   // ]);
   const [reload, setReload] = useState(false);
-  const {data:posts, isLoading, fetchError} = useFetch("posts", reload, session);
+  const {data:posts, isLoading, fetchError} = useFetch("posts_view", reload, session);
   const [showAddPostForm, setShowAddPostForm] = useState(false);
   console.log(posts)
 
@@ -43,7 +43,7 @@ const Home = ({setTitle, session}) => {
   <div className="content-container">
     <div className="content">
       {/* <!-- Dodatkowe posty będą tutaj dodawane --> */}
-      {posts && (<PostList posts={posts}/>)}
+      {posts && (<PostList posts={posts} session={session}/>)}
       {isLoading && <p>Ładowanie...</p>}
       {fetchError && <p>{fetchError}</p>}
     </div>
@@ -54,7 +54,7 @@ const Home = ({setTitle, session}) => {
     +
   </button>
   {/* <!-- Formularz do dodawania nowego postu --> */}
-  {showAddPostForm && <AddPostForm onSubmit={addPostSubmitHandler} onCancel={()=>setShowAddPostForm(false)}/>}
+  {showAddPostForm && <AddPostForm reload={reload} setReload={setReload} onSubmit={addPostSubmitHandler} onCancel={()=>setShowAddPostForm(false)} session={session}/>}
 
   </div>
    );

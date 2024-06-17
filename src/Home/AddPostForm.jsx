@@ -4,8 +4,9 @@ import useTextArea from '../Hooks/useTextArea';
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
+import supabase from '../config/supabaseClient';
 
-const AddPostForm = ({onCancel, onSubmit}) => {
+const AddPostForm = ({onCancel, onSubmit, session}) => {
     const {value:text, textareaRef, onChange:postTextOnChange} = useTextArea(32);
     const [title, setTitle] = useState('');
     const [isEvent, setIsEvent] = useState(false);
@@ -16,17 +17,13 @@ const AddPostForm = ({onCancel, onSubmit}) => {
     const [eventLocation, setEventLocation] = useState('');
 
 
-    const submitForm = (e) =>{
+    const submitForm = async (e) =>{
         e.preventDefault();
         var event;
-        if (isEvent) event={date:eventDate, time_starts:format(eventTimeStarts, "HH:mm"), time_ends:format(eventTimeEnds, "HH:mm"), location:eventLocation};
-        else event=null;
-        const post = {title:title, text:text, author:"Jan Kowalski", author_id:"e4d5f6a7-2b34-4c5d-9a6e-1c2f3d4b5e67", is_event:isEvent, event};
-        fetch('http://localhost:8000/posts',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(post),
-        }).then(()=>{
+        const post = {title:title, text:text, author_id:session.user.id, is_event:isEvent, date:eventDate, starts_at:format(eventTimeStarts, "HH:mm"), ends_at:format(eventTimeEnds, "HH:mm"), location:eventLocation};
+        await supabase.from('posts')
+        .insert(post)
+        .then(()=>{
             console.log('new post added')
         }).catch((err)=>{
             console.log(err)

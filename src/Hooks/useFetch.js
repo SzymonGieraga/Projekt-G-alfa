@@ -6,6 +6,7 @@ const useFetch = (table, reload, session) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
     const fetchData = async () =>{
+        console.log(table)
         setIsLoading(true);
         console.log(supabase)
         await supabase

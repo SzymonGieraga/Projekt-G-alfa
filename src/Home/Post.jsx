@@ -4,20 +4,58 @@ import { useState, useEffect } from 'react';
 import { format } from "date-fns";
 import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
+import supabase from '../config/supabaseClient';
 
 
-const Post = ({post}) => {
+const Post = ({post, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
     const [showComments, setShowComments] = useState(false);
+
+    const [takePart, setTakePart] = useState(false);
+
+    useEffect(()=>{
+        if (!session) return;
+        supabase.from('post_event_participations')
+        .select()
+        .eq('post_id', post.id)
+        .then(({data})=>{
+            if (data && data.length>0) setTakePart(true);
+        })
+
+    }, [session])
+
+
+    const postTakePart = async (e) => {
+            if (!session) return;
+            setTakePart(e.target.checked)
+            if(e.target.checked){
+                await supabase
+                .from('post_event_participations')
+                .insert([
+                    { user_id: session.user.id, post_id: post.id }
+                ]).then(({error})=>{
+                    if (error){
+                        console.log(error);
+                    }
+                })
+            }
+            else{
+                await supabase
+                .from('post_event_participations')
+                .delete()
+                .eq('user_id', session.user.id)
+                .eq('post_id', post.id)
+                .then(({error}) => {
+                    if (error) console.log(error);
+                })
+            }
+    }
     const showCommentsButtonClickHandler = (e) => {
         setShowComments(!showComments);
         e.preventDefault();
     }
 
 
-    const postTakePart = (e) => {
-
-    }
 
     return ( 
         <div className={styles.post}>
@@ -25,7 +63,7 @@ const Post = ({post}) => {
             <div className={styles.postHead}>
                 <h2 className={styles.postTitle}>{post.title}</h2>
                 <div className={styles.postMetaData}>
-                    <p className={styles.postAuthorName}><strong>{post.author}</strong></p>
+                    <p className={styles.postAuthorName}><strong>{post.first_name} {post.last_name}</strong></p>
                     <p className={styles.postDate}><i>{format(new Date(post.created_at), "dd.MM.yyyy, HH:mm")}</i></p>
                 </div>
             </div>
@@ -36,7 +74,7 @@ const Post = ({post}) => {
             </div>
 
             {/* Event details---------------------------------------------------------- */}
-            {/* {post.is_event && <EventDetails event={post}/>} */}
+            {post.is_event && <EventDetails event={post}/>}
 
             {/* Actions---------------------------------------------------------------- */}
             <div className={styles.actions}>
@@ -46,7 +84,7 @@ const Post = ({post}) => {
                 </a>
 
                 {post.is_event && <label className={styles.postTakePart}>
-                        <input type="checkbox" onClick={(e)=>postTakePart(e)}/> 
+                        <input type="checkbox" checked={takePart} onChange={(e)=>postTakePart(e)}/> 
                         Wezmę udział
                     </label>}
 
@@ -59,7 +97,7 @@ const Post = ({post}) => {
 
 
             {/* Comments--------------------------------------------------------------- */}
-            {showComments && (<CommentList post_id={post.id}/>)}
+            {showComments && (<CommentList post_id={post.id} session={session}/>)}
         </div>
      );
 }
