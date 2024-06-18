@@ -5,6 +5,7 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import supabase from '../config/supabaseClient';
+import {toast} from 'react-toastify'
 
 const AddPostForm = ({onCancel, onSubmit, session, addPostHiding}) => {
     const {value:text, textareaRef, onChange:postTextOnChange} = useTextArea(32);
@@ -24,9 +25,10 @@ const AddPostForm = ({onCancel, onSubmit, session, addPostHiding}) => {
         await supabase.from('posts')
         .insert(post)
         .then(()=>{
-            console.log('new post added')
+            toast.success("Dodano post")
         }).catch((err)=>{
             console.log(err)
+            toast.error("Nie udało się dodać posta!")
         })
         onSubmit();
     }
