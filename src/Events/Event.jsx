@@ -4,49 +4,14 @@ import { format } from "date-fns";
 import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
 import supabase from '../config/supabaseClient';
+import useTakePart from '../Hooks/useTakePart';
 
 
 const Event = ({event, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
-    const [takePart, setTakePart] = useState(false);
-
-    useEffect(()=>{
-        if (!session) return;
-        supabase.from('event_participations')
-        .select()
-        .eq('event_id', event.id)
-        .then(({data})=>{
-            if (data && data.length>0) setTakePart(true);
-        })
-
-    }, [session])
-
-
-    const eventTakePart = async (e) => {
-            if (!session) return;
-            setTakePart(e.target.checked)
-            if(e.target.checked){
-                await supabase
-                .from('event_participations')
-                .insert([
-                    { user_id: session.user.id, event_id: event.id }
-                ]).then(({error})=>{
-                    if (error){
-                        console.log(error);
-                    }
-                })
-            }
-            else{
-                await supabase
-                .from('event_participations')
-                .delete()
-                .eq('user_id', session.user.id)
-                .eq('event_id', event.id)
-                .then(({error}) => {
-                    if (error) console.log(error);
-                })
-            }
-    }
+    const row = { user_id: session.user.id, event_id: event.id };
+    const {takePart, takePartHandler:eventTakePart} = useTakePart(
+        {id:event.id, session, table:"event_participations", id_name:'event_id', row, is_event:true})
 
     return ( 
         <article>

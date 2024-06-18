@@ -5,51 +5,16 @@ import { format } from "date-fns";
 import EventDetails from '../Content/EventDetails';
 import Content from '../Content/Content';
 import supabase from '../config/supabaseClient';
+import useTakePart from '../Hooks/useTakePart';
 
 
 const Post = ({post, session}) => {
     const DEFAULT_TEXT_SIZE = 500;
     const [showComments, setShowComments] = useState(false);
+    const row = { user_id: session.user.id, post_id: post.id };
+    const {takePart, takePartHandler:postTakePart} = useTakePart(
+        {id:post.id, session, table:"post_event_participations", id_name:'post_id', row, is_event:post.is_event})
 
-    const [takePart, setTakePart] = useState(false);
-
-    useEffect(()=>{
-        if (!session) return;
-        supabase.from('post_event_participations')
-        .select()
-        .eq('post_id', post.id)
-        .then(({data})=>{
-            if (data && data.length>0) setTakePart(true);
-        })
-
-    }, [session])
-
-
-    const postTakePart = async (e) => {
-            if (!session) return;
-            setTakePart(e.target.checked)
-            if(e.target.checked){
-                await supabase
-                .from('post_event_participations')
-                .insert([
-                    { user_id: session.user.id, post_id: post.id }
-                ]).then(({error})=>{
-                    if (error){
-                        console.log(error);
-                    }
-                })
-            }
-            else{
-                await supabase
-                .from('post_event_participations')
-                .delete()
-                .eq('user_id', session.user.id)
-                .eq('post_id', post.id)
-                .then(({error}) => {
-                    if (error) console.log(error);
-                })
-            }
-    }
     const showCommentsButtonClickHandler = (e) => {
         setShowComments(!showComments);
         e.preventDefault();

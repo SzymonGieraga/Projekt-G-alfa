@@ -11,6 +11,8 @@ import Events from "./Events/Events";
 import { useEffect } from "react";
 import TimeTable from "./TimeTable/TimeTable";
 // import Schedule from "./Schedule/Schedule";  // Import the new Schedule component
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
     const [title, setTitle] = useState('');
@@ -34,6 +36,7 @@ const App = () => {
         <Router>
             <Header title={title} />
             <SideBar/>
+            <ToastContainer />
             <div className="App">
                 <Switch>
                     <Route exact path='/'><Home session={session} setTitle={setTitle} /></Route>
