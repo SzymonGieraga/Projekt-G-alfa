@@ -183,6 +183,7 @@ body {
     padding: 0.1em 0.4em;
     cursor: pointer;
     font-size: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes addPostShow {
@@ -207,6 +208,7 @@ body {
     transform: translate(-50%, -50%);
     width: 300px;
     z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     animation-name: addPostShow;
     animation-duration: 0.5s;
 }
@@ -251,6 +253,11 @@ body {
     justify-content:left;
     margin-top: 1em;
 }
+
+#postFormIsEventLabel{
+    cursor: pointer;
+}
+
 #postFormIsEventCheckbox{
     margin-left: 1em;
 }
