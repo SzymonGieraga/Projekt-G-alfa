@@ -29,6 +29,9 @@ const Schedule = ({ setTitle }) => {
     const [activities, setActivities] = useState([]);
     const [events, setEvents] = useState([]);
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [reloading, setReloading] = useState(false);
+
+    const reload = () => setReloading(!reloading);
 
     useEffect(() => {
         const fetchActivitiesAndEvents = async () => {
@@ -82,7 +85,7 @@ const Schedule = ({ setTitle }) => {
         };
 
         fetchActivitiesAndEvents();
-    }, []);
+    }, [reloading]);
 
     const handleWeekChange = (direction) => {
         setWeek(prev => Math.max(1, Math.min(prev + direction, 15)));
@@ -109,6 +112,7 @@ const Schedule = ({ setTitle }) => {
             if (error) {
                 throw error;
             }
+            reload();
 
             setActivities(prev => [...prev, {
                 ...newActivity,
