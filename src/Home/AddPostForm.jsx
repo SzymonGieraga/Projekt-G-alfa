@@ -18,11 +18,10 @@ const AddPostForm = ({onCancel, onSubmit, session, addPostHiding}) => {
     const [eventLocation, setEventLocation] = useState('');
 
 
-    const submitForm = async (e) =>{
+    const submitForm = (e) =>{
         e.preventDefault();
-        var event;
         const post = {title:title, text:text, author_id:session.user.id, is_event:isEvent, date:eventDate, starts_at:format(eventTimeStarts, "HH:mm"), ends_at:format(eventTimeEnds, "HH:mm"), location:eventLocation};
-        await supabase.from('posts')
+        supabase.from('posts')
         .insert(post)
         .then(()=>{
             toast.success("Dodano post")

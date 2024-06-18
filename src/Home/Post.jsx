@@ -8,7 +8,7 @@ import supabase from '../config/supabaseClient';
 import useTakePart from '../Hooks/useTakePart';
 
 
-const Post = ({post, session}) => {
+const Post = ({post, session, reload}) => {
     const DEFAULT_TEXT_SIZE = 500;
     const [showComments, setShowComments] = useState(false);
     const row = { user_id: session.user.id, post_id: post.id };
@@ -19,6 +19,10 @@ const Post = ({post, session}) => {
         setShowComments(!showComments);
         e.preventDefault();
     }
+
+    useEffect(()=>{
+        setShowComments(false)
+    }, [reload])
 
 
 
