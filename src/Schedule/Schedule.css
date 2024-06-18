@@ -1,11 +1,11 @@
+/* Existing CSS */
 .schedule-body {
     background-color: #D9D9D9;
     padding: 20px;
     width: 100%;
     margin-right: 10vw;
     right: 5px;
-
-
+    position: relative; /* Moved position to ensure it works with form container */
 }
 
 .week-navigation {
@@ -21,6 +21,7 @@
     align-items: flex-start;
     margin-top: 20px;
 }
+
 .schedule ul {
     list-style-type: none; /* Remove the default dot from the list items */
 }
@@ -50,12 +51,33 @@
 
 .add-button {
     position: fixed;
-    right: 20%;
-    top: 90%;
+    bottom: 8vh;
+    right: 8vh;
     transform: translateY(-50%);
-    width: 75px;
-    height: 75px;
+    padding: 0.1em 0.4em;
     cursor: pointer;
+    font-size: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form and animation styles */
+.activity-form-container {
+    position: absolute; /* Ensure it is within the schedule-body */
+    right: -100%;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease;
+}
+
+.activity-form-container.visible {
+    right: 0;
+}
+
+.activity-form-container.animating {
+    transition: right 0.3s ease;
 }
 
 .activity-form {
@@ -66,14 +88,14 @@
     background-color: white;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-right: 20px; /* Odstęp od prawej krawędzi ekranu */
-    width: 300px; /* Szerokość formularza */
+    margin-right: 20px; /* Offset from the right edge of the screen */
+    width: 300px; /* Form width */
 }
 
 .activity-form form div {
-    margin-bottom: 8px; /* Zwiększony odstęp między liniami */
+    margin-bottom: 8px; /* Increased spacing between lines */
 }
 
 .activity-form button[type="button"] {
-    margin-bottom: 0px; /* Odstęp między przyciskiem a formularzem */
+    margin-bottom: 0px; /* Spacing between the button and the form */
 }
