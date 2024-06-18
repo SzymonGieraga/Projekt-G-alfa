@@ -29,10 +29,36 @@ const Home = ({setTitle, session}) => {
   const {data:posts, isLoading, fetchError} = useFetch("posts_view", reload, session);
   const [showAddPostForm, setShowAddPostForm] = useState(false);
   console.log(posts)
+  const [addPostHiding, setAddPostHiding] = useState(false);
 
   const addPostSubmitHandler = ()=>{
-    setShowAddPostForm(false);
+    addPostHide();
     setReload(!reload);
+  }
+  function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+
+  const addPostHide = async () =>{
+    setAddPostHiding(true);
+    await delay(500);
+    setShowAddPostForm(false);
+    await delay(100);
+    setAddPostHiding(false);
+  }
+
+  const addPostShow = async () =>{
+    setAddPostHiding(false);
+    setShowAddPostForm(true);
+  }
+
+  const addPostButtonClickHandler = () =>{
+      if (addPostHiding) return;
+      if (showAddPostForm) addPostHide();
+      else addPostShow();
   }
 
 
@@ -50,11 +76,11 @@ const Home = ({setTitle, session}) => {
   </div>
 
   {/* <!-- Przycisk do dodawania nowego postu --> */}
-  <button onClick={()=>setShowAddPostForm(true)} className={styles.addPostButton}>
+  <button onClick={addPostButtonClickHandler} className={styles.addPostButton}>
     +
   </button>
   {/* <!-- Formularz do dodawania nowego postu --> */}
-  {showAddPostForm && <AddPostForm reload={reload} setReload={setReload} onSubmit={addPostSubmitHandler} onCancel={()=>setShowAddPostForm(false)} session={session}/>}
+  {showAddPostForm && <AddPostForm reload={reload} setReload={setReload} onSubmit={addPostSubmitHandler} onCancel={addPostHide} session={session} addPostHiding={addPostHiding}/>}
 
   </div>
    );

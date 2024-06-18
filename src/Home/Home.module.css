@@ -145,13 +145,6 @@ body {
     margin: 0;
 }
 
-.textSizeControll{
-    text-decoration: none;
-}
-
-.textSizeControll:visited{
-    color: #7A0019 !important;
-}
 
 .addCommentForm{
     margin-top: 10px;
@@ -192,6 +185,14 @@ body {
     font-size: 40px;
 }
 
+@keyframes addPostShow {
+    0%   {top: 150%;}
+    100% {top: 50%;}
+}
+@keyframes addPostHide {
+    0%   {top: 50%;}
+    100% {top: 150%;}
+}
 
 /* Styl dla formularza dodawania postów */
 .addPostForm {
@@ -206,6 +207,14 @@ body {
     transform: translate(-50%, -50%);
     width: 300px;
     z-index: 2;
+    animation-name: addPostShow;
+    animation-duration: 0.5s;
+}
+
+.addPostFormHide{
+    animation-name: addPostHide;
+    animation-duration: 0.5s;
+
 }
 
 .addPostForm label {

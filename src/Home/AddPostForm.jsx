@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import supabase from '../config/supabaseClient';
 
-const AddPostForm = ({onCancel, onSubmit, session}) => {
+const AddPostForm = ({onCancel, onSubmit, session, addPostHiding}) => {
     const {value:text, textareaRef, onChange:postTextOnChange} = useTextArea(32);
     const [title, setTitle] = useState('');
     const [isEvent, setIsEvent] = useState(false);
@@ -32,7 +32,7 @@ const AddPostForm = ({onCancel, onSubmit, session}) => {
     }
 
     return ( 
-    <form onSubmit={(e)=>submitForm(e)} className={styles.addPostForm}>
+    <form onSubmit={(e)=>submitForm(e)} className={styles.addPostForm+" "+(addPostHiding ? styles.addPostFormHide : "")}>
         {/*<h2 style="text-align: center;">Dodawanie Ogłoszenia</h2>*/} {/*<!-- Dodanie nagłówka przed polem tytułu -->*/}
         <label for="title">Tytul:</label>
         <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" id="title" name="title" required/>
