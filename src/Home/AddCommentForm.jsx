@@ -2,10 +2,10 @@ import style from './Home.module.css'
 import React from 'react';
 import useTextArea from '../Hooks/useTextArea';
 import supabase from '../config/supabaseClient';
+import {toast} from 'react-toastify'
 
 const AddCommentForm = ({post_id, session, reload, setReload}) => {
     const {value, textareaRef, onChange, setValue} = useTextArea(32);
-
     const addComment = async (e) => {
         e.preventDefault();
         if (!session) return;
@@ -15,11 +15,15 @@ const AddCommentForm = ({post_id, session, reload, setReload}) => {
             {author_id:session.user.id, post_id:post_id, text:value}
         ])
         .then(({error}) => {
-            if (error) console.log(error)
+            if (error){
+                console.log(error)
+                toast.error("Nie udało się dodać komentarza!")
+            }
             else{
                 setReload(!reload);
                 setValue("");
-                
+                toast.success("Udało się dodać komentarz")
+
             }
         })
     }

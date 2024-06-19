@@ -5,15 +5,12 @@ body {
     padding: 0;
     background-color: #ffffff;
 }
-
 /* Kontener dla całej zawartości strony */
 .container {
     width: 100%;
     margin: 0 auto;
     padding: 0;
 }
-
-
 /* Styl zawartości strony */
 .content {
     width: 100%;
@@ -22,14 +19,12 @@ body {
     overflow-y: auto;
     max-height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
 }
-
 /* Kontener dla zawartości, który zapewnia odpowiednie odstępy */
 .contentContainer {
     margin-left: 9vh;
     max-width: calc(100% - 18vh); /* Szerokość kontenera zmniejszona o szerokość panelu bocznego */
     height: calc(100vh - 8vh); /* Maksymalna wysokość kontenera minus wysokość nagłówka */
 }
-
 /* Styl pojedynczego postu */
 .post {
     border: 1px solid #464545;
@@ -63,11 +58,9 @@ body {
     margin-top: 1.5em;
     margin-bottom: 0.1em;
 }
-
 .postDate{
     font-size: 14px;
 }
-
 .postBody {
     margin-top: 1em; /* Mniejszy odstęp od treści postu */
     margin-bottom: 0;
@@ -75,30 +68,22 @@ body {
     line-height: 1.4;
     font-size: 0.9em; /* Zmieniono rozmiar tekstu w postach */
 }
-
 .post .actions {
     text-align: right;
     display: flex; 
-
     flex-direction:row;
     justify-content:space-between;
     margin-top: 1em;
 }
-
-
 .actions .actionContainer {
     display: flex;
     width: 100%;
     flex-direction:row;
     justify-content:space-between;
 }
-
-
 .postTakePart{
     cursor: pointer;   
 }
-
-
 .moreActions {
     margin-left: 10px;   
     /* display: flex; */
@@ -106,7 +91,6 @@ body {
     justify-content:space-between;
     display: block;
 }
-
 .selectAction {
     margin-right: 2px;
     display: block;
@@ -118,15 +102,12 @@ body {
     border-top: 2px solid rgb(92, 86, 86);
     display: block;
 }
-
 .comment {
     padding: 1px;
     margin-bottom: 5px; /* Mniejsza odległość między komentarzami */
     margin-top: 8px; /* Mniejsza odległość między komentarzami */
     border-bottom: 1px solid rgb(92, 86, 86);
-
 }
-
 .comment:last-of-type {
     border-bottom: none;
 }
@@ -145,18 +126,10 @@ body {
     margin: 0;
 }
 
-.textSizeControll{
-    text-decoration: none;
-}
-
-.textSizeControll:visited{
-    color: #7A0019 !important;
-}
 
 .addCommentForm{
     margin-top: 10px;
 }
-
 .commentButton {
     margin: 0;
     color: #7A0019 !important;
@@ -166,7 +139,6 @@ body {
 .commentButton:visited{
     color: #7A0019 !important;
 }
-
 .addCommentButton{
     font-size: small;
     display: block;
@@ -177,11 +149,9 @@ body {
     width: 95%;
     background-color: #c7c6c6;
 }
-
 .clear {
     clear: both;
 }
-
 /* Styl dla przycisku dodawania postów */
 .addPostButton {
     position: fixed !important;
@@ -190,8 +160,17 @@ body {
     padding: 0.1em 0.4em;
     cursor: pointer;
     font-size: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+@keyframes addPostShow {
+    0%   {top: 150%;}
+    100% {top: 50%;}
+}
+@keyframes addPostHide {
+    0%   {top: 50%;}
+    100% {top: 150%;}
+}
 
 /* Styl dla formularza dodawania postów */
 .addPostForm {
@@ -206,13 +185,21 @@ body {
     transform: translate(-50%, -50%);
     width: 300px;
     z-index: 2;
+    animation-name: addPostShow;
+    animation-duration: 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.addPostFormHide{
+    animation-name: addPostHide;
+    animation-duration: 0.5s;
+
 }
 
 .addPostForm label {
     display: block;
     margin-bottom: 5px;
 }
-
 .addPostForm input[type="text"],
 .addPostForm textarea,
 .addPostForm select {
@@ -223,7 +210,6 @@ body {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
-
 .addPostForm button[type="submit"] {
     background-color: #007bff;
     color: #fff;
@@ -232,11 +218,9 @@ body {
     padding: 10px 20px;
     cursor: pointer;
 }
-
 .addPostForm button[type="submit"]:hover {
     background-color: #0056b3;
 }
-
 #postFormIsEvent{
     display: flex;
     justify-content:left;
@@ -245,7 +229,10 @@ body {
 #postFormIsEventCheckbox{
     margin-left: 1em;
 }
-
 #postEventDate{
     width: 100%;
+}
+
+#postFormIsEventLabel{
+    cursor: pointer;
 }

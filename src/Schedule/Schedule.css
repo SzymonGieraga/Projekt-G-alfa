@@ -50,12 +50,12 @@
 
 .add-button {
     position: fixed;
-    right: 20%;
-    top: 90%;
+    bottom: 8vh;
+    right: 8vh;
     transform: translateY(-50%);
-    width: 75px;
-    height: 75px;
+    padding: 0.1em 0.4em;
     cursor: pointer;
+    font-size: 40px;
 }
 
 .activity-form {

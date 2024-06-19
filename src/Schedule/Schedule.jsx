@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import addButton from '../images/add-button.png'; 
-import './Schedule.css'; 
+import './Schedule.css';
 import ActivityForm from './ActivityForm'; // Import the ActivityForm component
 import { calculateWeekAndDay, daysOfWeek } from './dateUtils';
 
@@ -28,6 +27,7 @@ const Schedule = ({ setTitle, session }) => {
     const [events, setEvents] = useState([]);
     const [postEvents, setPostEvents] = useState([]);
     const [isFormVisible, setIsFormVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(true); // Loading state
 
     useEffect(() => {
         const fetchActivitiesAndEvents = async () => {
@@ -104,11 +104,13 @@ const Schedule = ({ setTitle, session }) => {
                 setPostEvents(formattedPostEvents);
             } catch (error) {
                 console.error('Error fetching data:', error.message);
+            } finally {
+                setIsLoading(false); // Set loading to false after fetching data
             }
         };
 
         fetchActivitiesAndEvents();
-    }, []);
+    }, [session.user.id]);
 
     const handleWeekChange = (direction) => {
         setWeek(prev => Math.max(1, Math.min(prev + direction, 15)));
@@ -145,7 +147,7 @@ const Schedule = ({ setTitle, session }) => {
         } catch (error) {
             console.error('Error adding activity:', error.message);
         }
-    }, []);
+    }, [session.user.id]);
 
     const filteredActivities = useMemo(() => activities.filter(activity => activity.week === week), [activities, week]);
     const filteredEvents = useMemo(() => events.filter(event => {
@@ -169,48 +171,54 @@ const Schedule = ({ setTitle, session }) => {
                     <div key={day} className="day-column">
                         <h2>{day}</h2>
                         <ul>
-                            {filteredActivities.filter(activity => activity.week_day === day).map((activity, index) => (
-                                <li key={index} className="activity-item">
-                                    {activity.title}: {activity.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {activity.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
-                                </li>
-                            ))}
-                            {filteredEvents.filter(event => {
-                                const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
-                                return eventWeekAndDay.dayOfWeek === day;
-                            }).map((event, index) => (
-                                <li key={index} className="event-item">
-                                    {event.name}:  {event.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {event.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
-                                </li>
-                            ))}
-                            {filteredPostEvents.filter(postEvent => {
-                                const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
-                                return postEventWeekAndDay.dayOfWeek === day;
-                            }).map((postEvent, index) => (
-                                <li key={index} className="post-event-item">
-                                    {postEvent.title}: {postEvent.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {postEvent.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
-                                </li>
-                            ))}
-                            {filteredActivities.filter(activity => activity.week_day === day).length === 0 &&
-                            filteredEvents.filter(event => {
-                                const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
-                                return eventWeekAndDay.dayOfWeek === day;
-                            }).length === 0 &&
-                            filteredPostEvents.filter(postEvent => {
-                                const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
-                                return postEventWeekAndDay.dayOfWeek === day;
-                            }).length === 0 && (
-                                <li className="no-activity">Żadnych aktywności tego dnia</li>
+                            {isLoading ? (
+                                <li className="loading">Ładowanie...</li>
+                            ) : (
+                                <>
+                                    {filteredActivities.filter(activity => activity.week_day === day).map((activity, index) => (
+                                        <li key={index} className="activity-item">
+                                            {activity.title}: {activity.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {activity.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
+                                        </li>
+                                    ))}
+                                    {filteredEvents.filter(event => {
+                                        const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
+                                        return eventWeekAndDay.dayOfWeek === day;
+                                    }).map((event, index) => (
+                                        <li key={index} className="event-item">
+                                            {event.name}:  {event.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {event.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
+                                        </li>
+                                    ))}
+                                    {filteredPostEvents.filter(postEvent => {
+                                        const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
+                                        return postEventWeekAndDay.dayOfWeek === day;
+                                    }).map((postEvent, index) => (
+                                        <li key={index} className="post-event-item">
+                                            {postEvent.title}: {postEvent.start.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })} - {postEvent.end.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' })}
+                                        </li>
+                                    ))}
+                                    {filteredActivities.filter(activity => activity.week_day === day).length === 0 &&
+                                    filteredEvents.filter(event => {
+                                        const eventWeekAndDay = calculateWeekAndDay(new Date(event.date));
+                                        return eventWeekAndDay.dayOfWeek === day;
+                                    }).length === 0 &&
+                                    filteredPostEvents.filter(postEvent => {
+                                        const postEventWeekAndDay = calculateWeekAndDay(new Date(postEvent.date));
+                                        return postEventWeekAndDay.dayOfWeek === day;
+                                    }).length === 0 && (
+                                        <li className="no-activity">Żadnych aktywności tego dnia</li>
+                                    )}
+                                </>
                             )}
                         </ul>
                     </div>
                 ))}
             </div>
-            <img 
-                src={addButton} 
-                alt="Add Activity" 
+            <button 
                 className="add-button" 
                 onClick={() => setIsFormVisible(true)}
-            />
+            >
+                +
+            </button>
             {isFormVisible && (
                 <ActivityForm onSave={handleAddActivity} onCancel={() => setIsFormVisible(false)} />
             )}

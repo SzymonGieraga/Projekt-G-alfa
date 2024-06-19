@@ -5,8 +5,8 @@ import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import supabase from '../config/supabaseClient';
-
-const AddPostForm = ({onCancel, onSubmit, session}) => {
+import {toast} from 'react-toastify'
+const AddPostForm = ({onCancel, onSubmit, session, addPostHiding}) => {
     const {value:text, textareaRef, onChange:postTextOnChange} = useTextArea(32);
     const [title, setTitle] = useState('');
     const [isEvent, setIsEvent] = useState(false);
@@ -17,22 +17,21 @@ const AddPostForm = ({onCancel, onSubmit, session}) => {
     const [eventLocation, setEventLocation] = useState('');
 
 
-    const submitForm = async (e) =>{
+    const submitForm = (e) =>{
         e.preventDefault();
-        var event;
         const post = {title:title, text:text, author_id:session.user.id, is_event:isEvent, date:eventDate, starts_at:format(eventTimeStarts, "HH:mm"), ends_at:format(eventTimeEnds, "HH:mm"), location:eventLocation};
-        await supabase.from('posts')
+        supabase.from('posts')
         .insert(post)
         .then(()=>{
-            console.log('new post added')
+            toast.success("Dodano post")
         }).catch((err)=>{
             console.log(err)
+            toast.error("Nie udało się dodać posta!")
         })
         onSubmit();
     }
-
     return ( 
-    <form onSubmit={(e)=>submitForm(e)} className={styles.addPostForm}>
+    <form onSubmit={(e)=>submitForm(e)} className={styles.addPostForm+" "+(addPostHiding ? styles.addPostFormHide : "")}>
         {/*<h2 style="text-align: center;">Dodawanie Ogłoszenia</h2>*/} {/*<!-- Dodanie nagłówka przed polem tytułu -->*/}
         <label for="title">Tytul:</label>
         <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" id="title" name="title" required/>
@@ -50,7 +49,6 @@ const AddPostForm = ({onCancel, onSubmit, session}) => {
             <option value="Grupa 4I7">4I7</option>
             <option value="Grupa 4I8">4I8</option>
         </select>
-
         <div id={styles.postFormIsEvent}>
             <label id={styles.postFormIsEventLabel} for={styles.postFormIsEventCheckbox}>Jest aktywnością</label>
             <input type="checkbox" value={isEvent} onChange={(e)=>setIsEvent(e.target.checked)} id={styles.postFormIsEventCheckbox}/>
@@ -103,7 +101,6 @@ const AddPostForm = ({onCancel, onSubmit, session}) => {
         <button type="submit">Dodaj Post</button>
         <button type="button" onClick={onCancel} className={styles.cancelPostButton}>Anuluj</button> {/*<!-- Dodanie przycisku anulowania -->*/}
     </form>
-
      );
 }
  

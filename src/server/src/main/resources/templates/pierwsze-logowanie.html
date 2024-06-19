@@ -11,7 +11,7 @@
     <body>
         <header> <h1>Czas na PŁ!</h1> </header>
 
-        <form action="/strona-glowna">
+        <form action="/tutorial">
             <fieldset>
                 <div class="box">       
                     Zauważyliśmy, że logujesz się po raz pierwszy.
@@ -33,7 +33,7 @@
                 <br>
                 <br>
                 <div class="box">
-                    <button type = "submit" class="button">Dalej</button>
+                    <button id="other-button" type = "submit" class="button">Dalej</button>
                 </div>
 
                 <br>
@@ -44,6 +44,8 @@
                 </div>
             </fieldset>
         </form>
+        <audio id="click-sound" src="/static/sounds/dziwekPrzeskoku.m4a" preload="auto"></audio>
+        <script src="/static/js/other-sound.js"></script>
 
     </body>
 

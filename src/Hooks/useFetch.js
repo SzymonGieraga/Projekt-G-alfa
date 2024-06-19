@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import supabase from "../config/supabaseClient";
+import {toast} from 'react-toastify'
 
 const useFetch = (table, reload, session) => {
   const [fetchError, setFetchError] = useState(null);
@@ -15,11 +16,11 @@ const useFetch = (table, reload, session) => {
         .then(({data:d, error}) => {
             if (error){
                 setFetchError("Nie udało się pobrać danych")
+                toast.success("Nie udało się pobrać danych")
                 console.log(error);
                 setData(null);
                 setIsLoading(false);
             }
-
             if (d){
             setData(d);
             setFetchError(null);
@@ -27,7 +28,6 @@ const useFetch = (table, reload, session) => {
             }
         })
     }
-
   useEffect(()=>{
     if (!session) return
     fetchData();

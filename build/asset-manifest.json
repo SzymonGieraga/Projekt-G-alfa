@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/projekt-g-alfa/static/css/main.7a98406b.css",
-    "main.js": "/projekt-g-alfa/static/js/main.3c197400.js",
-    "static/js/952.76b8ac15.chunk.js": "/projekt-g-alfa/static/js/952.76b8ac15.chunk.js",
+    "main.css": "/projekt-g-alfa/static/css/main.d2795ffa.css",
+    "main.js": "/projekt-g-alfa/static/js/main.40dfa3d7.js",
+    "static/js/198.0436cd33.chunk.js": "/projekt-g-alfa/static/js/198.0436cd33.chunk.js",
     "static/media/4I8.png": "/projekt-g-alfa/static/media/4I8.d88ae978420280f0bf58.png",
     "static/media/4I4.png": "/projekt-g-alfa/static/media/4I4.0d327604e3961c5fbcb3.png",
     "static/media/4I5.png": "/projekt-g-alfa/static/media/4I5.30668cc31431f384308b.png",
@@ -12,12 +12,12 @@
     "static/media/4I3.png": "/projekt-g-alfa/static/media/4I3.0962342f70f40c2b0424.png",
     "static/media/4I2.png": "/projekt-g-alfa/static/media/4I2.719bf741780d6a196c38.png",
     "index.html": "/projekt-g-alfa/index.html",
-    "main.7a98406b.css.map": "/projekt-g-alfa/static/css/main.7a98406b.css.map",
-    "main.3c197400.js.map": "/projekt-g-alfa/static/js/main.3c197400.js.map",
-    "952.76b8ac15.chunk.js.map": "/projekt-g-alfa/static/js/952.76b8ac15.chunk.js.map"
+    "main.d2795ffa.css.map": "/projekt-g-alfa/static/css/main.d2795ffa.css.map",
+    "main.40dfa3d7.js.map": "/projekt-g-alfa/static/js/main.40dfa3d7.js.map",
+    "198.0436cd33.chunk.js.map": "/projekt-g-alfa/static/js/198.0436cd33.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7a98406b.css",
-    "static/js/main.3c197400.js"
+    "static/css/main.d2795ffa.css",
+    "static/js/main.40dfa3d7.js"
   ]
 }

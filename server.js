@@ -176,6 +176,10 @@ app.get('/first-login', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/server/src/main/resources/templates/pierwsze-logowanie.html'));
 });
 
+app.get('/tutorial', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/server/src/main/resources/templates/tutorial.html'));
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res) => {
